@@ -1,0 +1,51 @@
+/* CSS Variables for Futuristic Portfolio Theme */
+
+:root {
+  /* Background colors */
+  --bg-darker: #0a121e;
+  --bg-dark: #0c1221;
+  --bg-medium: #141e32;
+  --bg-light: #1a2947;
+  
+  /* Text colors */
+  --text-white: #ffffff;
+  --text-primary: #e6e6e6;
+  --text-secondary: #b0b0b0;
+  --text-muted: #70809c;
+  --text-highlight: #f0f0f0;
+  
+  /* Accent colors - neon cyan primary */
+  --accent-primary: #00c8ff;
+  --accent-primary-light: #4dd6ff;
+  --accent-primary-dark: #0095c8;
+  
+  /* Accent colors - neon pink secondary */
+  --accent-secondary: #ff00aa;
+  --accent-secondary-light: #ff4cc6;
+  --accent-secondary-dark: #c8007e;
+  
+  /* Accent colors - gold for highlights */
+  --accent-gold: #ffd700;
+  --accent-gold-light: #ffe14d;
+  --accent-gold-dark: #c8aa00;
+  
+  /* Status colors */
+  --success: #00e676;
+  --warning: #ffab00;
+  --error: #ff1744;
+  --info: #00b0ff;
+  
+  /* Other utility variables */
+  --transition-slow: 0.5s;
+  --transition-medium: 0.3s;
+  --transition-fast: 0.15s;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --box-shadow-sm: 0 3px 8px rgba(0, 0, 0, 0.2);
+  --box-shadow-md: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --box-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --glow-cyan: 0 0 10px rgba(0, 200, 255, 0.5), 0 0 20px rgba(0, 200, 255, 0.3);
+  --glow-pink: 0 0 10px rgba(255, 0, 170, 0.5), 0 0 20px rgba(255, 0, 170, 0.3);
+  --glow-gold: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
+}

@@ -1,0 +1,114 @@
+    /* Estilos para el selector de colores */
+    #paletteOptions {
+      max-height: 400px;
+      overflow-y: auto;
+      padding: 5px;
+  }
+
+  .color-option {
+      display: flex;
+      align-items: center;
+      padding: 6px 12px;
+      margin: 2px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: calc(50% - 4px);
+      box-sizing: border-box;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid transparent;
+  }
+
+  .color-option:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .color-option.selected {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .color-preview {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      margin-right: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      flex-shrink: 0;
+  }
+
+  .color-label {
+      font-size: 0.8rem;
+      color: #ddd;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+
+  /* Ajustes para el acordeón en navbar */
+  .navbar .accordion-button {
+      background-color: transparent !important;
+      color: #ccc !important;
+      padding: 0.5rem 1rem;
+      box-shadow: none !important;
+      font-size: 0.9rem;
+  }
+
+  .navbar .accordion-button:not(.collapsed) {
+      color: #fff !important;
+  }
+
+  .navbar .accordion-collapse {
+      position: absolute;
+      right: 15px;
+      width: 280px;
+      z-index: 1000;
+  }
+
+  .navbar .accordion-body {
+      padding: 10px;
+      background-color: var(--bs-dark);
+      border-radius: 0 0 8px 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .palette-container {
+      padding: 8px;
+      border-radius: 6px;
+      background-color: rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
+  }
+
+  .palette-container h6 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #eee;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar .accordion-button::after {
+      margin-left: 8px;
+  }
+
+  .navbar .accordion-body {
+      max-height: 400px;
+      overflow-y: auto;
+  }
+
+  /* Responsive para móviles */
+  @media (max-width: 768px) {
+      .navbar .accordion-collapse {
+          position: fixed;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 90vw;
+          max-width: 300px;
+      }
+      
+      .color-option {
+          width: 100%;
+      }
+  }

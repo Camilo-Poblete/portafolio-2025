@@ -1,0 +1,110 @@
+/* Estilos para el selector de tema */
+.theme-selector {
+    position: relative;
+    margin-left: 2rem;
+}
+
+.theme-toggler {
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+    border: 1px solid rgba(var(--primary-color-rgb), 0.3);
+    border-radius: 50%;
+    color: var(--text-light);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.6rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.theme-toggler:hover {
+    transform: rotate(15deg);
+    background-color: rgba(var(--primary-color-rgb), 0.2);
+}
+
+.theme-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--bg-darker);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 0.75rem;
+    width: 150px;
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 100;
+    margin-top: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 0 15px rgba(var(--primary-color-rgb), 0.1);
+}
+
+.theme-menu.open {
+    display: flex;
+    animation: fadeInDown 0.3s ease forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.theme-option {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    padding: 0.6rem 1rem;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+    transition: width 0.3s ease;
+}
+
+.theme-option:hover::before {
+    width: 100%;
+}
+
+.theme-option:hover {
+    color: var(--text-light);
+}
+
+.theme-option.active {
+    background-color: rgba(var(--primary-color-rgb), 0.15);
+    color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .theme-selector {
+        margin-left: 1rem;
+    }
+    
+    .theme-toggler {
+        font-size: 1rem;
+        padding: 0.5rem;
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+}

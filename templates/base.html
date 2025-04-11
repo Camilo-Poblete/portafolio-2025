@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Camilo Poblete - Portfolio{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}">
+    <link rel="stylesheet" href="{% static 'css/timeline.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/body.css' %}">
+    <link rel="stylesheet" href="{% static 'css/section.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mode.css' %}">
+    <link rel="stylesheet" href="{% static 'css/particles.css' %}">
+
+    <style>
+        #btn-change-bg {
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 50%;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        #btn-change-bg:hover {
+            background-color: #27ae60;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .color-box {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .color-box:hover {
+            opacity: 0.8;
+        }
+    </style>
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body data-bs-theme="dark">
+    <canvas id="particle-canvas"></canvas>
+
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'portfolio:index' %}"><span>Camilo Poblete</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link {% if active_page == 'home' %}active{% endif %}" href="{% url 'portfolio:index' %}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link {% if active_page == 'projects' %}active{% endif %}" href="{% url 'portfolio:project_list' %}">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link {% if active_page == 'skills' %}active{% endif %}" href="{% url 'portfolio:skill_list' %}">Habilidades</a></li>
+                    <li class="nav-item"><a class="nav-link {% if active_page == 'contact' %}active{% endif %}" href="{% url 'portfolio:contact' %}">Contacto</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-download me-2"></i> CV
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'portfolio:download_cv_es' %}"><i class="fas fa-download me-2"></i> CV Español</a></li>
+                            <li><a class="dropdown-item" href="{% url 'portfolio:download_cv_en' %}"><i class="fas fa-download me-2"></i> CV Inglés</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <div class="accordion" id="accordionColorMenu">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                        Colores de Partículas
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionColorMenu">
+                                    <div class="accordion-body">
+                                        <div id="paletteOptions"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button id="btn-change-bg" class="btn btn-primary" aria-label="Cambiar color de fondo">
+                            <i class="fas fa-palette"></i>
+                        </button>
+                        <div class="color-palette d-none" id="colorPalette">
+                            <div class="color-box" style="background-color: #e67e22;" data-color="#e67e22"></div>
+                            <div class="color-box" style="background-color: #e74c3c;" data-color="#e74c3c"></div>
+                            <div class="color-box" style="background-color: #2ecc71;" data-color="#2ecc71"></div>
+                            <div class="color-box" style="background-color: #00bcd4;" data-color="#00bcd4"></div>
+                            <div class="color-box" style="background-color: #3498db;" data-color="#3498db"></div>
+                            <div class="color-box" style="background-color: #9b59b6;" data-color="#9b59b6"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>{% block content %}{% endblock %}</main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a href="{% url 'portfolio:index' %}" class="footer-logo">Camilo Poblete</a>
+                    <p class="footer-text">Desarrollador Full Stack & Ingeniero de Software especializado en crear aplicaciones web y móviles con arquitecturas modernas y escalables.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/base.js' %}"></script>
+    <script src="{% static 'js/animation.js' %}"></script>
+    <script src="{% static 'js/home.js' %}"></script>
+    <script src="{% static 'js/particles.js' %}"></script>
+
+    <script>
+        const btnChangeBg = document.getElementById('btn-change-bg');
+        const colorPalette = document.getElementById('colorPalette');
+
+        btnChangeBg.addEventListener('click', () => {
+            colorPalette.classList.toggle('d-none');
+        });
+
+        const setThemeColor = (color) => {
+            document.body.style.backgroundColor = color;
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.style.backgroundColor = color;
+                btn.style.borderColor = color;
+            });
+        };
+
+        colorPalette.addEventListener('click', (e) => {
+            if (e.target.classList.contains('color-box')) {
+                const color = e.target.getAttribute('data-color');
+                localStorage.setItem('bgColor', color);
+                setThemeColor(color);
+            }
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedColor = localStorage.getItem('bgColor');
+            if (savedColor) {
+                setThemeColor(savedColor);
+            }
+        });
+    </script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

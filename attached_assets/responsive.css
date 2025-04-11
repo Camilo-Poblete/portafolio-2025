@@ -1,0 +1,288 @@
+/* Responsive styles */
+
+/* Extra small devices (phones, 576px and down) */
+@media (max-width: 576px) {
+  /* Typography */
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.75rem;
+  }
+  
+  .hero-content .welcome {
+    font-size: 1.5rem;
+  }
+  
+  .hero-content .portfolio {
+    font-size: 2.5rem;
+  }
+  
+  /* Spacing */
+  .section-padding {
+    padding: 3rem 0;
+  }
+  
+  /* Hero section */
+  .hero-section {
+    padding: 4rem 0;
+    text-align: center;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
+  .hero-buttons .btn {
+    margin-bottom: 1rem;
+  }
+  
+  .hero-image {
+    margin-top: 2rem;
+  }
+  
+  /* About section */
+  .about-content {
+    text-align: center;
+  }
+  
+  .key-skills {
+    justify-content: center;
+  }
+  
+  .tech-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  /* Project cards */
+  .project-card {
+    margin-bottom: 2rem;
+  }
+  
+  /* Filters */
+  .filter-controls {
+    flex-direction: column;
+  }
+  
+  .filter-group {
+    width: 100%;
+  }
+  
+  .filter-buttons {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    flex-wrap: nowrap;
+  }
+  
+  .filter-btn {
+    flex-shrink: 0;
+  }
+  
+  /* Contact page */
+  .contact-info {
+    margin-bottom: 2rem;
+  }
+  
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .contact-icon {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  /* Development cards */
+  .development-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .development-icon {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Footer */
+  .site-footer {
+    text-align: center;
+  }
+  
+  .site-footer .social-links {
+    justify-content: center;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* Typography */
+  h1 {
+    font-size: 2.75rem;
+  }
+  
+  h2 {
+    font-size: 2.25rem;
+  }
+  
+  /* Hero section */
+  .hero-section {
+    padding: 4rem 0;
+  }
+  
+  .hero-image {
+    margin-top: 2rem;
+  }
+  
+  /* Project cards */
+  .project-card {
+    margin-bottom: 2rem;
+  }
+  
+  /* Footer */
+  .site-footer {
+    text-align: center;
+  }
+  
+  .site-footer .social-links {
+    justify-content: center;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Hero section */
+  .hero-section {
+    padding: 5rem 0;
+  }
+  
+  .hero-image {
+    margin-top: 3rem;
+  }
+  
+  /* Projects */
+  .project-card {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  /* Navigation */
+  .navbar-nav {
+    margin-left: auto;
+  }
+  
+  /* Hero section */
+  .hero-section {
+    min-height: calc(100vh - 76px);
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Two-column layout */
+  .two-columns {
+    display: flex;
+  }
+  
+  .column {
+    flex: 1;
+  }
+  
+  .column:first-child {
+    margin-right: 2rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+  
+  /* Hero section */
+  .hero-content .welcome {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content .portfolio {
+    font-size: 4rem;
+  }
+}
+
+/* For very large screens */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .site-header,
+  .site-footer,
+  .cta-section,
+  .project-filters,
+  .filter-controls,
+  .btn,
+  .social-links {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  a {
+    text-decoration: none !important;
+    color: #000 !important;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .page-header {
+    background-color: #fff !important;
+    color: #000 !important;
+    padding: 1rem 0;
+  }
+  
+  .page-header h1 {
+    color: #000 !important;
+  }
+  
+  .text-gold {
+    color: #000 !important;
+  }
+  
+  .section-padding {
+    padding: 1.5rem 0;
+  }
+  
+  .card, 
+  .skills-category,
+  .development-card,
+  .contact-info,
+  .contact-form-container {
+    box-shadow: none !important;
+    border: 1px solid #ddd;
+  }
+}

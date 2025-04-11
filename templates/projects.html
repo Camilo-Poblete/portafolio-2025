@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %} 
+{% block title %}{{ title }}{% if current_filter %} - {{ current_filter }}{% endif %} - Camilo Poblete{% endblock %}
+
+{% block content %}
+<!-- Projects Hero Section -->
+<section class="projects-hero-section bg-scan" id="projects-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center fade-in-up">
+                <h1 class="hero-title">{{ title }}{% if current_filter %} - {{ current_filter }}{% endif %}</h1>
+                <p class="hero-text">Una colección de proyectos que he desarrollado, demostrando mis habilidades técnicas y mi enfoque en crear soluciones escalables, accesibles y centradas en el usuario.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Filter Section -->
+<section class="project-filters-section">
+    <div class="container">
+        <!-- Filtro principal de pestañas -->
+        <div class="filter-tabs">
+            <button class="tab-btn {% if not selected_tech_category %}active{% endif %}" 
+                   onclick="location.href='{% url 'portfolio:project_list' %}'">{% trans 'Categorías' %}</button>
+            <button class="tab-btn {% if selected_tech_category %}active{% endif %}" 
+                   onclick="location.href='{% url 'portfolio:project_list' %}?filter_type=tech_categories'">{% trans 'Tecnologías' %}</button>
+        </div>
+
+        {% if request.GET.filter_type == 'tech_categories' %}
+            <!-- Filtro por categorías de tecnologías -->
+            <div class="tech-categories-filter">
+                <button class="filter-btn {% if not selected_tech_category %}active{% endif %}" 
+                       onclick="location.href='{% url 'portfolio:project_list' %}?filter_type=tech_categories'">
+                    {% trans 'Todas' %}
+                </button>
+                
+                {% for category in tech_categories %}
+                    <button class="filter-btn {% if selected_tech_category == category %}active{% endif %}" 
+                           onclick="location.href='{% url 'portfolio:project_list' %}?filter_type=tech_categories&tech_category={{ category }}'">
+                        {{ category }}
+                    </button>
+                {% endfor %}
+            </div>
+            
+            {% if selected_tech_category %}
+                <!-- Mostrar tecnologías de la categoría seleccionada -->
+                <div class="technologies-filter">
+                    <button class="filter-btn {% if not selected_technology %}active{% endif %}" 
+                           onclick="location.href='{% url 'portfolio:project_list' %}?filter_type=tech_categories&tech_category={{ selected_tech_category }}'">
+                        {% trans 'Todas' %}
+                    </button>
+                    
+                    {% for tech in selected_technologies %}
+                        <button class="filter-btn {% if selected_technology == tech %}active{% endif %}" 
+                               onclick="location.href='{% url 'portfolio:project_list' %}?filter_type=tech_categories&tech_category={{ selected_tech_category }}&technology={{ tech }}'">
+                            {{ tech }}
+                        </button>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% else %}
+            <!-- Filtro por categorías de proyectos -->
+            <div class="categories-filter">
+                <button class="filter-btn {% if not selected_category %}active{% endif %}" 
+                       onclick="location.href='{% url 'portfolio:project_list' %}'">
+                    {% trans 'Todas' %}
+                </button>
+                
+                {% for category in categories %}
+                    <button class="filter-btn {% if selected_category == category %}active{% endif %}" 
+                           onclick="location.href='{% url 'portfolio:project_list' %}?category={{ category }}'">
+                        {{ category }}
+                    </button>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Projects Grid Section -->
+<div class="section-divider"></div>
+<section class="projects-grid-section bg-scan" id="projects-grid">
+    <div class="container">
+        <div class="projects-grid">
+            {% for project in projects %}
+            <div class="project-card fade-in-up delay-{{ forloop.counter }}" data-project-id="{{ project.id }}" data-categories="{{ project.categories|join:',' }}" data-technologies="{{ project.technologies|join:',' }}">
+                <div class="project-image">
+                    <img src="{{ project.image }}" alt="{{ project.title }}">
+                    <div class="project-links">
+                        <a href="{{ project.github_url }}" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="{{ project.live_url }}" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <a href="javascript:void(0)" onclick="openProjectModal({{ project.id }})" class="project-link">
+                            <i class="fas fa-info-circle"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        {% for category in project.categories %}
+                        <span class="project-tag">{{ category }}</span>
+                        {% endfor %}
+                    </div>
+                    <h3 class="project-title">{{ project.title }}</h3>
+                    <p class="project-description">{{ project.short_description }}</p>
+                    <div class="project-technologies">
+                        {% for tech in project.technologies %}
+                        <span class="project-tech">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="no-projects">
+                <p>{% trans 'No se encontraron proyectos que coincidan con los filtros seleccionados.' %}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Project Modals -->
+{% for project in projects %}
+<div id="project-modal-{{ project.id }}" class="project-modal">
+    <div class="modal-container">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-image-container">
+                    <img src="{{ project.image }}" alt="{{ project.title }}" class="modal-image">
+                    <div class="modal-title-container">
+                        <h2 class="modal-title">{{ project.title }}</h2>
+                        <div class="modal-tags">
+                            {% for category in project.categories %}
+                            <span class="modal-tag">{{ category }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <button class="modal-close" onclick="closeProjectModals()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-description">
+                    {{ project.long_description|linebreaks }}
+                </div>
+                
+                <div class="modal-technologies">
+                    <h3 class="modal-tech-title">Tecnologías Utilizadas</h3>
+                    <div class="modal-tech-list">
+                        {% for tech in project.technologies %}
+                        <div class="modal-tech-item">
+                            <i class="fas fa-code"></i>
+                            {{ tech }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="modal-links">
+                    <a href="{{ project.github_url }}" target="_blank" class="modal-link">
+                        <button class="modal-link-btn modal-github-btn">
+                            <i class="fab fa-github"></i>
+                            <span>Ver Código</span>
+                        </button>
+                    </a>
+                    <a href="{{ project.live_url }}" target="_blank" class="modal-link">
+                        <button class="modal-link-btn modal-demo-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Ver Demo</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/filter.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/filter.js' %}"></script>
+{% endblock %}

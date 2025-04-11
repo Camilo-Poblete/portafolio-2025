@@ -1,0 +1,5 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#1a2a38"/>
+  <rect x="50" y="50" width="500" height="300" fill="#2a3a48" rx="10" ry="10"/>
+  <text x="300" y="200" font-family="Arial" font-size="36" font-weight="bold" text-anchor="middle" fill="#f1c40f">Task Management</text>
+</svg>

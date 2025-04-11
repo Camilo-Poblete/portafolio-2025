@@ -1,0 +1,4 @@
+<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="250" cy="250" r="240" fill="#1a2a38" stroke="#f1c40f" stroke-width="10"/>
+  <text x="250" y="290" font-family="Arial" font-size="160" font-weight="bold" text-anchor="middle" fill="#f1c40f">CP</text>
+</svg>

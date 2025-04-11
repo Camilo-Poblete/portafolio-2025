@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ title }} - Camilo Poblete{% endblock %}
+
+{% block content %}
+<!-- Contact Section -->
+<section class="contact-section bg-scan" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 fade-in-left">
+                <h2>{{ title }}</h2>
+                <p class="mb-4">¡Hablemos! Si tienes alguna pregunta sobre mis servicios, deseas colaborar en un proyecto o quieres consultar mi disponibilidad, no dudes en contactarme utilizando el formulario o los datos de contacto.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h5>Email</h5>
+                            <p><a href="mailto:{{ owner_email }}">{{ owner_email }}</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h5>Ubicación</h5>
+                            <p>Santiago, Chile</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h5>GitHub</h5>
+                            <p><a href="{{ owner_github }}" target="_blank">{{ owner_github | cut:"https://" }}</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fab fa-linkedin-in"></i>
+                        <div>
+                            <h5>LinkedIn</h5>
+                            <p><a href="{{ owner_linkedin }}" target="_blank">{{ owner_linkedin | cut:"https://" }}</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-social">
+                    <a href="{{ owner_github }}" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="{{ owner_linkedin }}" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="{{ owner_twitter }}" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="mailto:{{ owner_email }}" class="social-icon"><i class="far fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 fade-in-right">
+                <div class="contact-form-container">
+                    <h3>Envíame un Mensaje</h3>
+                    
+                    {% if messages %}
+                    <div class="messages">
+                        {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    
+                    <form id="contact-form" method="post" action="{% url 'portfolio:contact' %}">
+                        {% csrf_token %}
+                        
+                        <div class="form-group mb-3">
+                            <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+                            {{ form.name }}
+                            {% if form.name.errors %}
+                            <div class="invalid-feedback">
+                                {{ form.name.errors }}
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                            {{ form.email }}
+                            {% if form.email.errors %}
+                            <div class="invalid-feedback">
+                                {{ form.email.errors }}
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            <label for="{{ form.subject.id_for_label }}">{{ form.subject.label }}</label>
+                            {{ form.subject }}
+                            {% if form.subject.errors %}
+                            <div class="invalid-feedback">
+                                {{ form.subject.errors }}
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group mb-4">
+                            <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+                            {{ form.message }}
+                            {% if form.message.errors %}
+                            <div class="invalid-feedback">
+                                {{ form.message.errors }}
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane me-2"></i> Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add scanner effect to the form container
+        const formContainer = document.querySelector('.contact-form-container');
+        if (formContainer) {
+            formContainer.classList.add('scanner');
+        }
+        
+        // Focus first form field
+        const firstInput = document.querySelector('#contact-form input:first-of-type');
+        if (firstInput) {
+            setTimeout(() => {
+                firstInput.focus();
+            }, 1000);
+        }
+    });
+</script>
+{% endblock %}

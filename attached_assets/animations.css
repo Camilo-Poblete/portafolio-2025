@@ -1,0 +1,195 @@
+/* Animaciones para el tema futurista */
+
+/* Glow efecto para elementos */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 247, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 247, 255, 0.6);
+  }
+}
+
+.glow-element {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* Escaneo efecto */
+@keyframes scan {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+.scan-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(0, 247, 255, 0) 0%,
+    rgba(0, 247, 255, 0.15) 50%,
+    rgba(0, 247, 255, 0) 100%);
+  background-size: 100% 200%;
+  animation: scan 4s linear infinite;
+  pointer-events: none;
+}
+
+/* Efecto de código en typescripts */
+@keyframes typeCode {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.code-line {
+  display: block;
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid var(--primary-color);
+  animation: typeCode 3s steps(40, end) forwards;
+}
+
+.code-line:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.code-line:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.code-line:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+/* Efecto de pulsación para elementos */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+.pulse-effect {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Flotar efecto para elementos */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-effect {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Efecto de carga */
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.loading-bar {
+  height: 3px;
+  background-color: var(--primary-color);
+  width: 0%;
+  animation: loading 2s ease-in-out forwards;
+}
+
+/* Efecto de desvanecimiento para el fondo */
+@keyframes fadeBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.fade-background {
+  background: linear-gradient(-45deg, var(--bg-dark), var(--bg-darker), #0a1025, #0d1535);
+  background-size: 400% 400%;
+  animation: fadeBackground 15s ease infinite;
+}
+
+/* Efecto de aparición para elementos cuando hacen scroll */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.appear, .fade-in-left.appear, .fade-in-right.appear {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Efecto de línea en progreso */
+@keyframes drawLine {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.draw-line {
+  position: relative;
+}
+
+.draw-line::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: var(--primary-color);
+  animation: drawLine 1.5s ease-in-out forwards;
+}

@@ -1,0 +1,158 @@
+/* Particles.css - Styles for particle effects */
+
+/* Particles Container */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-index-particles);
+  pointer-events: none;
+}
+
+/* Timeline Styles */
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+                             transparent 0%, 
+                             var(--color-primary) 10%, 
+                             var(--color-primary) 90%, 
+                             transparent 100%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.timeline-item:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 255, 170, 0.5);
+  z-index: 1;
+}
+
+.timeline-content {
+  position: relative;
+  width: calc(50% - 40px);
+  padding: 1.5rem;
+  background: var(--color-background-card);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-standard);
+  border: 1px solid var(--color-border);
+  transition: var(--transition-standard);
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  margin-left: auto;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  margin-right: auto;
+}
+
+.timeline-item:nth-child(odd) .timeline-content:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -15px;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-right: 15px solid var(--color-background-card);
+  border-bottom: 15px solid transparent;
+}
+
+.timeline-item:nth-child(even) .timeline-content:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -15px;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-left: 15px solid var(--color-background-card);
+  border-bottom: 15px solid transparent;
+}
+
+.timeline-date {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background: rgba(0, 255, 170, 0.1);
+  color: var(--color-primary);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.timeline-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-text);
+}
+
+.timeline-subtitle {
+  font-size: 1rem;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.timeline-description {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Hover Effects */
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border-color: var(--color-primary);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .timeline:before {
+    left: 40px;
+  }
+  
+  .timeline-item:before {
+    left: 40px;
+  }
+  
+  .timeline-content {
+    width: calc(100% - 80px);
+    margin-left: 80px !important;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-content:before,
+  .timeline-item:nth-child(even) .timeline-content:before {
+    left: -15px;
+    right: auto;
+    border-right: 15px solid var(--color-background-card);
+    border-left: none;
+  }
+}

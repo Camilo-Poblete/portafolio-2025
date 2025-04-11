@@ -1,0 +1,383 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Camilo Poblete - Desarrollador Full Stack & Ingeniero de Software{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section" id="home">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 hero-content">
+                <h1 class="glitch" data-text="CAMILO POBLETE">CAMILO POBLETE</h1>
+                <div class="hero-subtitle">
+                    <span class="neon-text">Desarrollador Full Stack &</span>
+                    <span class="neon-text">Ingeniero de Software</span>
+                </div>
+                <p class="hero-description">
+                    Transformando ideas en soluciones tecnológicas innovadoras. 
+                    Especializado en crear aplicaciones web y móviles con arquitecturas modernas y escalables.
+                </p>
+                
+                <div class="hero-cta">
+                    <a href="#projects" class="btn-cyberpunk mr-3">
+                        <span class="btn-text">Ver Proyectos</span>
+                        <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                    <div class="hero-cta">
+                        <a href="{% url 'portfolio:download_cv_es' %}" class="btn-cyberpunk mr-3">
+                            <span class="btn-text">Descargar</span>
+                            <i class="fas fa-download ms-2"></i> <!-- Ícono de descarga -->
+                        </a>
+                    </div>
+
+
+
+                    
+                </div>
+            </div>
+            <div class="col-lg-5 hero-illustration-container">
+                <div class="hero-illustration">
+                    <div class="cyber-frame">
+                        <div class="cyber-frame-corner top-left"></div>
+                        <div class="cyber-frame-corner top-right"></div>
+                        <div class="cyber-frame-corner bottom-left"></div>
+                        <div class="cyber-frame-corner bottom-right"></div>
+                        <div class="cyber-pattern"></div>
+                    </div>
+                    <div class="cyber-circle"></div>
+                    <div class="cyber-line"></div>
+                    <div class="cyber-hex"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="projects-section" id="projects">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="glitch" data-text="Proyectos Destacados">Proyectos Destacados</h2>
+            <div class="section-line"></div>
+        </div>
+        
+        <div class="filter-controls">
+            <div class="filter-type-switch">
+                <span class="switch-btn active" data-type="category" onclick="switchFilterType('category')">Por Categoría</span>
+                <span class="switch-btn" data-type="tech" onclick="switchFilterType('tech')">Por Tecnología</span>
+            </div>
+            
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all" data-type="category" onclick="filterProjects('all')">Todos</button>
+                {% for category in categories %}
+                <button class="filter-btn" data-filter="{{ category }}" data-type="category" onclick="filterProjects('{{ category }}', 'category')">{{ category }}</button>
+                {% endfor %}
+            </div>
+            
+            <div class="tech-filters" style="display: none;">
+                {% for category, techs in technologies_by_category.items %}
+                <div class="tech-category">
+                    <h4 class="tech-category-title">{{ category }}</h4>
+                    <div class="tech-buttons">
+                        {% for tech in techs %}
+                        <button class="filter-btn" data-filter="{{ tech }}" data-type="technology" onclick="filterProjects('{{ tech }}', 'technology')">{{ tech }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="projects-grid">
+            {% for project in projects %}
+            <div class="project-card hologram-card" data-project-id="{{ project.id }}" data-categories="{{ project.categories|join:',' }}" data-technologies="{{ project.technologies|join:',' }}">
+                <div class="project-image">
+                    <div class="project-image-placeholder" style="background: linear-gradient(135deg, {{ project.color }}30, {{ project.color }}10)">
+                        <div class="project-icon" style="color: {{ project.color }}">
+                            {% if 'Web' in project.categories|join:'' %}
+                                <i class="fas fa-globe-americas fa-3x"></i>
+                            {% elif 'Móvil' in project.categories|join:'' %}
+                                <i class="fas fa-mobile-alt fa-3x"></i>
+                            {% elif 'Inteligencia Artificial' in project.categories|join:'' %}
+                                <i class="fas fa-brain fa-3x"></i>
+                            {% elif 'Blockchain' in project.categories|join:'' %}
+                                <i class="fas fa-cubes fa-3x"></i>
+                            {% elif 'Educación' in project.categories|join:'' %}
+                                <i class="fas fa-graduation-cap fa-3x"></i>
+                            {% elif 'E-commerce' in project.categories|join:'' %}
+                                <i class="fas fa-shopping-cart fa-3x"></i>
+                            {% elif 'Herramientas' in project.categories|join:'' %}
+                                <i class="fas fa-tools fa-3x"></i>
+                            {% else %}
+                                <i class="fas fa-code fa-3x"></i>
+                            {% endif %}
+                        </div>
+                        <div class="project-shape" style="border-color: {{ project.color }}"></div>
+                    </div>
+                    <div class="project-overlay"></div>
+                    <div class="project-links">
+                        <a href="{{ project.github_url }}" target="_blank" class="project-link-btn">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <button class="project-link-btn" onclick="openProjectModal({{ project.id }})">
+                            <i class="fas fa-info-circle"></i>
+                        </button>
+                        <a href="{{ project.live_url }}" target="_blank" class="project-link-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-categories">
+                        {% for category in project.categories %}
+                        <span class="project-category">{{ category }}</span>
+                        {% endfor %}
+                    </div>
+                    <h3 class="project-title">{{ project.title }}</h3>
+                    <p class="project-desc">{{ project.short_description }}</p>
+                    <div class="project-techs">
+                        {% for tech in project.technologies %}
+                        <span class="project-tech">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="{% url 'portfolio:project_list' %}" class="btn-cyberpunk btn-cyberpunk-outline">
+                <span class="btn-text">Ver Todos los Proyectos</span>
+                <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="skills-section" id="skills">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="glitch" data-text="Mis Habilidades">Mis Habilidades</h2>
+            <div class="section-line"></div>
+        </div>
+        
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="skills-content scanner">
+                    <p class="mb-4">
+                        Tengo experiencia en diversas tecnologías y metodologías de desarrollo. 
+                        Siempre estoy aprendiendo y adaptándome a las últimas tendencias tecnológicas.
+                    </p>
+                    
+                    <div class="skill-wrapper">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Desarrollo Frontend</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Desarrollo Backend</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Desarrollo de Apps Móviles</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">DevOps & Cloud Services</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <a href="{% url 'portfolio:skill_list' %}" class="btn-cyberpunk">
+                            <span class="btn-text">Ver Detalles</span>
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="skills-visual">
+                    <div class="tech-icon-wrapper">
+                        <div class="tech-icon" style="top: 10%; left: 20%;">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="tech-icon" style="top: 30%; left: 75%;">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="tech-icon" style="top: 50%; left: 15%;">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="tech-icon" style="top: 70%; left: 60%;">
+                            <i class="fab fa-aws"></i>
+                            <span>AWS</span>
+                        </div>
+                        <div class="tech-icon" style="top: 15%; left: 50%;">
+                            <i class="fab fa-docker"></i>
+                            <span>Docker</span>
+                        </div>
+                        <div class="tech-icon" style="top: 80%; left: 25%;">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="tech-icon" style="top: 40%; left: 40%;">
+                            <i class="fab fa-angular"></i>
+                            <span>Angular</span>
+                        </div>
+                        <div class="tech-icon" style="top: 60%; left: 80%;">
+                            <i class="fab fa-vuejs"></i>
+                            <span>Vue.js</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-lines">
+                        <div class="grid-line horizontal"></div>
+                        <div class="grid-line horizontal"></div>
+                        <div class="grid-line horizontal"></div>
+                        <div class="grid-line vertical"></div>
+                        <div class="grid-line vertical"></div>
+                        <div class="grid-line vertical"></div>
+                    </div>
+                    
+                    <div class="pulse-circles">
+                        <div class="pulse-circle" style="top: 20%; left: 30%;"></div>
+                        <div class="pulse-circle" style="top: 70%; left: 40%;"></div>
+                        <div class="pulse-circle" style="top: 40%; left: 80%;"></div>
+                        <div class="pulse-circle" style="top: 90%; left: 70%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section class="experience-section" id="experience">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="glitch" data-text="Mi Experiencia">Mi Experiencia</h2>
+            <div class="section-line"></div>
+        </div>
+        
+        <div class="timeline">
+            {% for exp in experience %}
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content hologram-card">
+                    <div class="timeline-date">{{ exp.period }}</div>
+                    <h3 class="timeline-position">{{ exp.position }}</h3>
+                    <h4 class="timeline-company">{{ exp.company }}</h4>
+                    <p class="timeline-description">{{ exp.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container text-center">
+        <h2 class="cta-title">¿Interesado en Trabajar Juntos?</h2>
+        <p class="cta-text">
+            Estoy disponible para proyectos freelance y oportunidades de trabajo full-time. 
+            Contáctame y hablemos de cómo puedo ayudarte a llevar tu proyecto al siguiente nivel.
+        </p>
+        <a href="{% url 'portfolio:contact' %}" class="btn-cyberpunk btn-cyberpunk-gold">
+            <i class="fas fa-envelope me-2"></i>
+            <span class="btn-text">Contáctame Ahora</span>
+        </a>
+    </div>
+</section>
+
+<!-- Project Modals -->
+{% for project in projects %}
+<div id="project-modal-{{ project.id }}" class="project-modal">
+    <div class="modal-container">
+        <div class="modal-content hologram-card">
+            <div class="modal-header">
+                <h2 class="modal-title neon-text">{{ project.title }}</h2>
+                <button class="modal-close" onclick="closeProjectModals()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-categories">
+                    {% for category in project.categories %}
+                    <span class="modal-category">{{ category }}</span>
+                    {% endfor %}
+                </div>
+                
+                <div class="modal-description">
+                    {{ project.long_description|linebreaks }}
+                </div>
+                
+                <div class="modal-technologies">
+                    <h3 class="modal-subtitle">Tecnologías Utilizadas</h3>
+                    <div class="modal-tech-grid">
+                        {% for tech in project.technologies %}
+                        <div class="modal-tech">
+                            <i class="fas fa-code"></i>
+                            <span>{{ tech }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <a href="{{ project.github_url }}" target="_blank" class="btn-cyberpunk btn-cyberpunk-outline">
+                        <i class="fab fa-github me-2"></i>
+                        <span class="btn-text">Ver Código</span>
+                    </a>
+                    <a href="{{ project.live_url }}" target="_blank" class="btn-cyberpunk">
+                        <i class="fas fa-external-link-alt me-2"></i>
+                        <span class="btn-text">Ver Demo</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+
+<link rel="stylesheet" href="{% static 'js/home.js' %}">
+
+
+{% endblock %}

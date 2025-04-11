@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo circular con brillo -->
+  <defs>
+    <radialGradient id="circleGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#0c1221" />
+      <stop offset="70%" stop-color="#0a0a2a" />
+      <stop offset="100%" stop-color="#1a0b35" />
+    </radialGradient>
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#00ffe5" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#00ffe5" stop-opacity="0" />
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00ffe5" stop-opacity="0" />
+      <stop offset="50%" stop-color="#00ffe5" stop-opacity="1" />
+      <stop offset="100%" stop-color="#00ffe5" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Círculo de fondo -->
+  <circle cx="200" cy="200" r="190" fill="url(#circleGradient)" />
+  
+  <!-- Círculo exterior brillante -->
+  <circle cx="200" cy="200" r="195" fill="none" stroke="#00ffe5" stroke-width="2" stroke-opacity="0.3" />
+  
+  <!-- Círculo de brillo -->
+  <circle cx="200" cy="200" r="210" fill="url(#glowGradient)" filter="url(#glow)" />
+  
+  <!-- Rejilla de fondo (estilo cyberpunk) -->
+  <g opacity="0.2">
+    <!-- Líneas horizontales -->
+    <g stroke="url(#lineGradient)" stroke-width="1">
+      <line x1="20" y1="50" x2="380" y2="50" />
+      <line x1="20" y1="100" x2="380" y2="100" />
+      <line x1="20" y1="150" x2="380" y2="150" />
+      <line x1="20" y1="200" x2="380" y2="200" />
+      <line x1="20" y1="250" x2="380" y2="250" />
+      <line x1="20" y1="300" x2="380" y2="300" />
+      <line x1="20" y1="350" x2="380" y2="350" />
+    </g>
+    <!-- Líneas verticales -->
+    <g stroke="url(#lineGradient)" stroke-width="1">
+      <line x1="50" y1="20" x2="50" y2="380" />
+      <line x1="100" y1="20" x2="100" y2="380" />
+      <line x1="150" y1="20" x2="150" y2="380" />
+      <line x1="200" y1="20" x2="200" y2="380" />
+      <line x1="250" y1="20" x2="250" y2="380" />
+      <line x1="300" y1="20" x2="300" y2="380" />
+      <line x1="350" y1="20" x2="350" y2="380" />
+    </g>
+  </g>
+  
+  <!-- Silueta de persona (estilo minimalista) -->
+  <g transform="translate(120, 100)">
+    <!-- Cabeza -->
+    <circle cx="80" cy="70" r="60" fill="#00ffe5" fill-opacity="0.1" stroke="#00ffe5" stroke-width="2" />
+    
+    <!-- Detalles de la cara (estilo digital) -->
+    <g stroke="#00ffe5" stroke-width="1.5" fill="none">
+      <!-- Ojos -->
+      <circle cx="60" cy="60" r="6" />
+      <circle cx="100" cy="60" r="6" />
+      
+      <!-- Pupilas (puntos de luz) -->
+      <circle cx="60" cy="60" r="2" fill="#00ffe5" />
+      <circle cx="100" cy="60" r="2" fill="#00ffe5" />
+      
+      <!-- Pequeños detalles digitales -->
+      <line x1="58" y1="52" x2="62" y2="52" />
+      <line x1="98" y1="52" x2="102" y2="52" />
+      <line x1="68" y1="60" x2="72" y2="60" />
+      <line x1="88" y1="60" x2="92" y2="60" />
+      
+      <!-- Sonrisa suave (arco) -->
+      <path d="M55,85 Q80,105 105,85" />
+    </g>
+    
+    <!-- Líneas de hombros (minimalistas) -->
+    <path d="M30,140 Q80,160 130,140" stroke="#00ffe5" stroke-width="2" fill="none" />
+    
+    <!-- Detalles de circuitos digitales -->
+    <g stroke="#00ffe5" stroke-width="1" opacity="0.7">
+      <path d="M40,170 L40,190 L60,190" fill="none" />
+      <path d="M120,170 L120,190 L100,190" fill="none" />
+      <circle cx="60" cy="190" r="2" fill="#00ffe5" />
+      <circle cx="100" cy="190" r="2" fill="#00ffe5" />
+      <line x1="65" y1="190" x2="95" y2="190" />
+    </g>
+  </g>
+  
+  <!-- Partículas y detalles adicionales -->
+  <g fill="#00ffe5">
+    <circle cx="50" cy="100" r="1.5" opacity="0.7" />
+    <circle cx="340" cy="120" r="1.5" opacity="0.7" />
+    <circle cx="80" cy="280" r="1.5" opacity="0.7" />
+    <circle cx="300" cy="250" r="1.5" opacity="0.7" />
+    <circle cx="200" cy="50" r="1.5" opacity="0.7" />
+    <circle cx="150" cy="330" r="1.5" opacity="0.7" />
+    <circle cx="250" cy="320" r="1.5" opacity="0.7" />
+  </g>
+  
+  <!-- Elementos decorativos (bytes de datos) -->
+  <g font-family="monospace" font-size="10" fill="#00ffe5" opacity="0.5">
+    <text x="40" y="40">01011</text>
+    <text x="320" y="60">10110</text>
+    <text x="50" y="350">00101</text>
+    <text x="300" y="340">11100</text>
+  </g>
+  
+  <!-- Líneas de conexión (estilo circuito) -->
+  <g stroke="#00ffe5" stroke-width="1" opacity="0.3">
+    <path d="M40,40 L60,40 L60,60" fill="none" />
+    <path d="M340,60 L360,60 L360,80" fill="none" />
+    <path d="M50,350 L70,350 L70,370" fill="none" />
+    <path d="M340,340 L360,340 L360,320" fill="none" />
+  </g>
+  
+  <!-- Anillo exterior con animación -->
+  <circle cx="200" cy="200" r="195" fill="none" stroke="#0077ff" stroke-width="1" stroke-dasharray="10,5" opacity="0.7">
+    <animateTransform 
+      attributeName="transform" 
+      attributeType="XML" 
+      type="rotate" 
+      from="0 200 200" 
+      to="360 200 200" 
+      dur="20s" 
+      repeatCount="indefinite" />
+  </circle>
+</svg>

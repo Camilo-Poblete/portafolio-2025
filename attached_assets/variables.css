@@ -1,0 +1,288 @@
+/* Tema base con propiedades compartidas */
+:root {
+  /* Bordes */
+  --border-radius: 6px;
+  --border-radius-sm: 4px;
+  --border-radius-lg: 12px;
+  
+  /* Tipografía */
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-family-heading: 'Rajdhani', 'Inter', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Roboto Mono', monospace;
+  
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+  --font-size-4xl: 3rem;
+  
+  /* Espaciado */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* Efectos */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  
+  /* Transiciones */
+  --transition-base: all 0.3s ease;
+  --transition-fast: all 0.15s ease;
+  --transition-slow: all 0.5s ease;
+}
+
+/* Tema oscuro (predeterminado) */
+:root, [data-theme="dark"] {
+  /* Colores principales */
+  --bg-dark: #080a1a;
+  --bg-darker: #050715;
+  --bg-light: #101230;
+  --primary-color: #00f7ff;
+  --primary-color-rgb: 0, 247, 255;
+  --secondary-color: #3676ff;
+  --secondary-color-rgb: 54, 118, 255;
+  --accent-color: #f7f700;
+  --accent-color-rgb: 247, 247, 0;
+  
+  /* Colores de texto */
+  --text-light: #ffffff;
+  --text-muted: #a0a0c0;
+  --text-dark: #1a1a2e;
+  
+  /* Bordes */
+  --border-color: rgba(0, 247, 255, 0.2);
+  --shadow-glow: 0 0 15px rgba(0, 247, 255, 0.3);
+}
+
+/* Tema claro */
+[data-theme="light"] {
+  /* Colores principales */
+  --bg-dark: #ebf4ff;
+  --bg-darker: #dde8f8;
+  --bg-light: #ffffff;
+  --primary-color: #0066ff;
+  --primary-color-rgb: 0, 102, 255;
+  --secondary-color: #3676ff;
+  --secondary-color-rgb: 54, 118, 255;
+  --accent-color: #ff9a00;
+  --accent-color-rgb: 255, 154, 0;
+  
+  /* Colores de texto */
+  --text-light: #25274d;
+  --text-muted: #5a5a7a;
+  --text-dark: #1a1a36;
+  
+  /* Bordes */
+  --border-color: rgba(0, 102, 255, 0.2);
+  --shadow-glow: 0 0 15px rgba(0, 102, 255, 0.3);
+}
+
+/* Tema azul */
+[data-theme="blue"] {
+  /* Colores principales */
+  --bg-dark: #050b33;
+  --bg-darker: #03072a;
+  --bg-light: #0a1555;
+  --primary-color: #3399ff;
+  --primary-color-rgb: 51, 153, 255;
+  --secondary-color: #00ccff;
+  --secondary-color-rgb: 0, 204, 255;
+  --accent-color: #99ddff;
+  --accent-color-rgb: 153, 221, 255;
+  
+  /* Colores de texto */
+  --text-light: #ffffff;
+  --text-muted: #99aadd;
+  --text-dark: #112244;
+  
+  /* Bordes */
+  --border-color: rgba(51, 153, 255, 0.2);
+  --shadow-glow: 0 0 15px rgba(51, 153, 255, 0.3);
+}
+
+/* Tema verde */
+[data-theme="green"] {
+  /* Colores principales */
+  --bg-dark: #052211;
+  --bg-darker: #031a0d;
+  --bg-light: #0a331a;
+  --primary-color: #00ff99;
+  --primary-color-rgb: 0, 255, 153;
+  --secondary-color: #00cc77;
+  --secondary-color-rgb: 0, 204, 119;
+  --accent-color: #99ffcc;
+  --accent-color-rgb: 153, 255, 204;
+  
+  /* Colores de texto */
+  --text-light: #ffffff;
+  --text-muted: #99ccaa;
+  --text-dark: #112233;
+  
+  /* Bordes */
+  --border-color: rgba(0, 255, 153, 0.2);
+  --shadow-glow: 0 0 15px rgba(0, 255, 153, 0.3);
+}
+
+/* Tema naranja */
+[data-theme="orange"] {
+  /* Colores principales */
+  --bg-dark: #331100;
+  --bg-darker: #220a00;
+  --bg-light: #442200;
+  --primary-color: #ff6600;
+  --primary-color-rgb: 255, 102, 0;
+  --secondary-color: #ff9900;
+  --secondary-color-rgb: 255, 153, 0;
+  --accent-color: #ffcc00;
+  --accent-color-rgb: 255, 204, 0;
+  
+  /* Colores de texto */
+  --text-light: #ffffff;
+  --text-muted: #ddbb99;
+  --text-dark: #331100;
+  
+  /* Bordes */
+  --border-color: rgba(255, 102, 0, 0.2);
+  --shadow-glow: 0 0 15px rgba(255, 102, 0, 0.3);
+}
+
+/* Tema rojo */
+[data-theme="red"] {
+  /* Colores principales */
+  --bg-dark: #330a0a;
+  --bg-darker: #220505;
+  --bg-light: #441010;
+  --primary-color: #ff3333;
+  --primary-color-rgb: 255, 51, 51;
+  --secondary-color: #ff6666;
+  --secondary-color-rgb: 255, 102, 102;
+  --accent-color: #ffaaaa;
+  --accent-color-rgb: 255, 170, 170;
+  
+  /* Colores de texto */
+  --text-light: #ffffff;
+  --text-muted: #dd9999;
+  --text-dark: #331111;
+  
+  /* Bordes */
+  --border-color: rgba(255, 51, 51, 0.2);
+  --shadow-glow: 0 0 15px rgba(255, 51, 51, 0.3);
+}
+
+/* Tema morado */
+[data-theme="purple"] {
+  /* Colores principales */
+  --bg-dark: #22052e;
+  --bg-darker: #190222;
+  --bg-light: #330844;
+  --primary-color: #aa33ff;
+  --primary-color-rgb: 170, 51, 255;
+  --secondary-color: #9966ff;
+  --secondary-color-rgb: 153, 102, 255;
+  --accent-color: #dd99ff;
+  --accent-color-rgb: 221, 153, 255;
+  
+  /* Colores de texto */
+  --text-light: #ffffff;
+  --text-muted: #ccaadd;
+  --text-dark: #220033;
+  
+  /* Bordes */
+  --border-color: rgba(170, 51, 255, 0.2);
+  --shadow-glow: 0 0 15px rgba(170, 51, 255, 0.3);
+}
+
+/* Tema celeste */
+[data-theme="lightblue"] {
+  /* Colores principales */
+  --bg-dark: #0a2236;
+  --bg-darker: #041a29;
+  --bg-light: #103352;
+  --primary-color: #39c4ff;
+  --primary-color-rgb: 57, 196, 255;
+  --secondary-color: #00f5ff;
+  --secondary-color-rgb: 0, 245, 255;
+  --accent-color: #b3e8ff;
+  --accent-color-rgb: 179, 232, 255;
+  
+  /* Colores de texto */
+  --text-light: #ffffff;
+  --text-muted: #99ccee;
+  --text-dark: #112233;
+  
+  /* Bordes */
+  --border-color: rgba(57, 196, 255, 0.2);
+  --shadow-glow: 0 0 15px rgba(57, 196, 255, 0.3);
+}
+
+/* Clases de utilidad */
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-secondary {
+  color: var(--secondary-color);
+}
+
+.text-accent {
+  color: var(--accent-color);
+}
+
+.bg-dark {
+  background-color: var(--bg-dark);
+}
+
+.bg-darker {
+  background-color: var(--bg-darker);
+}
+
+.bg-light {
+  background-color: var(--bg-light);
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible, .fade-up.visible, .fade-left.visible, .fade-right.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.delay-1 {
+  transition-delay: 0.2s;
+}
+
+.delay-2 {
+  transition-delay: 0.4s;
+}
+
+.delay-3 {
+  transition-delay: 0.6s;
+}
+
+.glow-text {
+  color: var(--text-light);
+  text-shadow: 0 0 10px rgba(var(--primary-color-rgb), 0.5), 0 0 20px rgba(var(--primary-color-rgb), 0.3);
+}

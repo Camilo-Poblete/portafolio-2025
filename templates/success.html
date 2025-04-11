@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Mensaje Enviado - Camilo Poblete{% endblock %}
+
+{% block content %}
+<section class="success-section text-center py-5">
+    <div class="container">
+        <h2 class="mb-4">¡Gracias por tu mensaje!</h2>
+        <p>Tu mensaje ha sido enviado con éxito. Me pondré en contacto contigo pronto.</p>
+        <a href="{% url 'portfolio:index' %}" class="btn btn-primary mt-4">Volver al Inicio</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,17 @@
+/* Estilo general para los enlaces del navbar */
+.navbar-nav .nav-link {
+    color: white; /* Color blanco para los enlaces */
+    transition: background-color 0.3s ease; /* Transición suave al cambiar de color */
+}
+
+/* Estilo cuando el enlace está activo (se hace clic) */
+.navbar-nav .nav-link.active {
+    color: white; /* Mantener el texto en blanco */
+  
+}
+
+/* Estilo cuando el mouse pasa por encima (hover) */
+.navbar-nav .nav-link:hover {
+    color: white; /* Mantener el texto blanco al hacer hover */
+    
+}
