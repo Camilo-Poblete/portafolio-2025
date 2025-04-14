@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% load i18n %}
 {% load static %} 
@@ -110,87 +111,87 @@
                     <div class="project-technologies">
                         {% for tech in project.technologies %}
                         <span class="project-tech">
-                            <!-- Iconos de tecnologías con tamaño aumentado -->
+                            <!-- Iconos de tecnologías -->
                             {% if tech == 'HTML' or tech == 'HTML5' %}
-                                <i class="fab fa-html5 tech-icon-lg" title="HTML5"></i>
+                                <i class="fab fa-html5" title="HTML5"></i>
                             {% elif tech == 'CSS' or tech == 'CSS3' %}
-                                <i class="fab fa-css3-alt tech-icon-lg" title="CSS3"></i>
+                                <i class="fab fa-css3-alt" title="CSS3"></i>
                             {% elif tech == 'JavaScript' or tech == 'JS' %}
-                                <i class="fab fa-js-square tech-icon-lg" title="JavaScript"></i>
+                                <i class="fab fa-js-square" title="JavaScript"></i>
                             {% elif tech == 'TypeScript' or tech == 'TS' %}
-                                <i class="fas fa-code tech-icon-lg" title="TypeScript"></i>
+                                <i class="fas fa-code" title="TypeScript"></i>
                             {% elif tech == 'Python' %}
-                                <i class="fab fa-python tech-icon-lg" title="Python"></i>
+                                <i class="fab fa-python" title="Python"></i>
                             {% elif tech == 'Django' %}
-                                <i class="fab fa-python tech-icon-lg" title="Django"></i>
+                                <i class="fab fa-python" title="Django"></i>
                             {% elif tech == 'React' or tech == 'React.js' %}
-                                <i class="fab fa-react tech-icon-lg" title="React"></i>
+                                <i class="fab fa-react" title="React"></i>
                             {% elif tech == 'Vue' or tech == 'Vue.js' %}
-                                <i class="fab fa-vuejs tech-icon-lg" title="Vue.js"></i>
+                                <i class="fab fa-vuejs" title="Vue.js"></i>
                             {% elif tech == 'Angular' %}
-                                <i class="fab fa-angular tech-icon-lg" title="Angular"></i>
+                                <i class="fab fa-angular" title="Angular"></i>
                             {% elif tech == 'Node.js' or tech == 'Node' %}
-                                <i class="fab fa-node-js tech-icon-lg" title="Node.js"></i>
+                                <i class="fab fa-node-js" title="Node.js"></i>
                             {% elif tech == 'Express' or tech == 'Express.js' %}
-                                <i class="fas fa-server tech-icon-lg" title="Express.js"></i>
+                                <i class="fas fa-server" title="Express.js"></i>
                             {% elif tech == 'PostgreSQL' %}
-                                <i class="fas fa-database tech-icon-lg" title="PostgreSQL"></i>
+                                <i class="fas fa-database" title="PostgreSQL"></i>
                             {% elif tech == 'MySQL' %}
-                                <i class="fas fa-database tech-icon-lg" title="MySQL"></i>
+                                <i class="fas fa-database" title="MySQL"></i>
                             {% elif tech == 'MongoDB' %}
-                                <i class="fas fa-database tech-icon-lg" title="MongoDB"></i>
+                                <i class="fas fa-database" title="MongoDB"></i>
                             {% elif tech == 'Git' %}
-                                <i class="fab fa-git-alt tech-icon-lg" title="Git"></i>
+                                <i class="fab fa-git-alt" title="Git"></i>
                             {% elif tech == 'Docker' %}
-                                <i class="fab fa-docker tech-icon-lg" title="Docker"></i>
+                                <i class="fab fa-docker" title="Docker"></i>
                             {% elif tech == 'AWS' or tech == 'Amazon Web Services' %}
-                                <i class="fab fa-aws tech-icon-lg" title="AWS"></i>
+                                <i class="fab fa-aws" title="AWS"></i>
                             {% elif tech == 'Azure' %}
-                                <i class="fab fa-microsoft tech-icon-lg" title="Azure"></i>
+                                <i class="fab fa-microsoft" title="Azure"></i>
                             {% elif tech == 'Firebase' %}
-                                <i class="fas fa-fire tech-icon-lg" title="Firebase"></i>
+                                <i class="fas fa-fire" title="Firebase"></i>
                             {% elif tech == 'GraphQL' %}
-                                <i class="fas fa-project-diagram tech-icon-lg" title="GraphQL"></i>
+                                <i class="fas fa-project-diagram" title="GraphQL"></i>
                             {% elif tech == 'REST API' %}
-                                <i class="fas fa-cloud tech-icon-lg" title="REST API"></i>
+                                <i class="fas fa-cloud" title="REST API"></i>
                             {% elif tech == 'Sass' or tech == 'SCSS' %}
-                                <i class="fab fa-sass tech-icon-lg" title="Sass"></i>
+                                <i class="fab fa-sass" title="Sass"></i>
                             {% elif tech == 'Bootstrap' %}
-                                <i class="fab fa-bootstrap tech-icon-lg" title="Bootstrap"></i>
+                                <i class="fab fa-bootstrap" title="Bootstrap"></i>
                             {% elif tech == 'Tailwind CSS' %}
-                                <i class="fas fa-wind tech-icon-lg" title="Tailwind CSS"></i>
+                                <i class="fas fa-wind" title="Tailwind CSS"></i>
                             {% elif tech == 'Material UI' or tech == 'MUI' %}
-                                <i class="fas fa-palette tech-icon-lg" title="Material UI"></i>
+                                <i class="fas fa-palette" title="Material UI"></i>
                             {% elif tech == 'jQuery' %}
-                                <i class="fas fa-code tech-icon-lg" title="jQuery"></i>
+                                <i class="fas fa-code" title="jQuery"></i>
                             {% elif tech == 'Redux' %}
-                                <i class="fas fa-boxes tech-icon-lg" title="Redux"></i>
+                                <i class="fas fa-boxes" title="Redux"></i>
                             {% elif tech == 'Next.js' %}
-                                <i class="fas fa-arrow-right tech-icon-lg" title="Next.js"></i>
+                                <i class="fas fa-arrow-right" title="Next.js"></i>
                             {% elif tech == 'Nuxt.js' %}
-                                <i class="fas fa-arrow-right tech-icon-lg" title="Nuxt.js"></i>
+                                <i class="fas fa-arrow-right" title="Nuxt.js"></i>
                             {% elif tech == 'Flask' %}
-                                <i class="fas fa-flask tech-icon-lg" title="Flask"></i>
+                                <i class="fas fa-flask" title="Flask"></i>
                             {% elif tech == 'FastAPI' %}
-                                <i class="fas fa-bolt tech-icon-lg" title="FastAPI"></i>
+                                <i class="fas fa-bolt" title="FastAPI"></i>
                             {% elif tech == 'Nginx' %}
-                                <i class="fas fa-server tech-icon-lg" title="Nginx"></i>
+                                <i class="fas fa-server" title="Nginx"></i>
                             {% elif tech == 'Linux' %}
-                                <i class="fab fa-linux tech-icon-lg" title="Linux"></i>
+                                <i class="fab fa-linux" title="Linux"></i>
                             {% elif tech == 'Windows' %}
-                                <i class="fab fa-windows tech-icon-lg" title="Windows"></i>
+                                <i class="fab fa-windows" title="Windows"></i>
                             {% elif tech == 'MacOS' %}
-                                <i class="fab fa-apple tech-icon-lg" title="MacOS"></i>
+                                <i class="fab fa-apple" title="MacOS"></i>
                             {% elif tech == 'Figma' %}
-                                <i class="fab fa-figma tech-icon-lg" title="Figma"></i>
+                                <i class="fab fa-figma" title="Figma"></i>
                             {% elif tech == 'Adobe XD' %}
-                                <i class="fas fa-paint-brush tech-icon-lg" title="Adobe XD"></i>
+                                <i class="fas fa-paint-brush" title="Adobe XD"></i>
                             {% elif tech == 'Photoshop' %}
-                                <i class="fas fa-image tech-icon-lg" title="Photoshop"></i>
+                                <i class="fas fa-image" title="Photoshop"></i>
                             {% elif tech == 'Illustrator' %}
-                                <i class="fas fa-pen-fancy tech-icon-lg" title="Illustrator"></i>
+                                <i class="fas fa-pen-fancy" title="Illustrator"></i>
                             {% else %}
-                                <span class="tech-text-lg" title="{{ tech }}">{{ tech }}</span>
+                                <span title="{{ tech }}">{{ tech }}</span>
                             {% endif %}
                         </span>
                         {% endfor %}
@@ -237,87 +238,87 @@
                     <div class="modal-tech-list">
                         {% for tech in project.technologies %}
                         <div class="modal-tech-item">
-                            <!-- Iconos de tecnologías con tamaño aumentado -->
+                            <!-- Iconos de tecnologías (mismos que arriba) -->
                             {% if tech == 'HTML' or tech == 'HTML5' %}
-                                <i class="fab fa-html5 tech-icon-xl" title="HTML5"></i>
+                                <i class="fab fa-html5" title="HTML5"></i>
                             {% elif tech == 'CSS' or tech == 'CSS3' %}
-                                <i class="fab fa-css3-alt tech-icon-xl" title="CSS3"></i>
+                                <i class="fab fa-css3-alt" title="CSS3"></i>
                             {% elif tech == 'JavaScript' or tech == 'JS' %}
-                                <i class="fab fa-js-square tech-icon-xl" title="JavaScript"></i>
+                                <i class="fab fa-js-square" title="JavaScript"></i>
                             {% elif tech == 'TypeScript' or tech == 'TS' %}
-                                <i class="fas fa-code tech-icon-xl" title="TypeScript"></i>
+                                <i class="fas fa-code" title="TypeScript"></i>
                             {% elif tech == 'Python' %}
-                                <i class="fab fa-python tech-icon-xl" title="Python"></i>
+                                <i class="fab fa-python" title="Python"></i>
                             {% elif tech == 'Django' %}
-                                <i class="fab fa-python tech-icon-xl" title="Django"></i>
+                                <i class="fab fa-python" title="Django"></i>
                             {% elif tech == 'React' or tech == 'React.js' %}
-                                <i class="fab fa-react tech-icon-xl" title="React"></i>
+                                <i class="fab fa-react" title="React"></i>
                             {% elif tech == 'Vue' or tech == 'Vue.js' %}
-                                <i class="fab fa-vuejs tech-icon-xl" title="Vue.js"></i>
+                                <i class="fab fa-vuejs" title="Vue.js"></i>
                             {% elif tech == 'Angular' %}
-                                <i class="fab fa-angular tech-icon-xl" title="Angular"></i>
+                                <i class="fab fa-angular" title="Angular"></i>
                             {% elif tech == 'Node.js' or tech == 'Node' %}
-                                <i class="fab fa-node-js tech-icon-xl" title="Node.js"></i>
+                                <i class="fab fa-node-js" title="Node.js"></i>
                             {% elif tech == 'Express' or tech == 'Express.js' %}
-                                <i class="fas fa-server tech-icon-xl" title="Express.js"></i>
+                                <i class="fas fa-server" title="Express.js"></i>
                             {% elif tech == 'PostgreSQL' %}
-                                <i class="fas fa-database tech-icon-xl" title="PostgreSQL"></i>
+                                <i class="fas fa-database" title="PostgreSQL"></i>
                             {% elif tech == 'MySQL' %}
-                                <i class="fas fa-database tech-icon-xl" title="MySQL"></i>
+                                <i class="fas fa-database" title="MySQL"></i>
                             {% elif tech == 'MongoDB' %}
-                                <i class="fas fa-database tech-icon-xl" title="MongoDB"></i>
+                                <i class="fas fa-database" title="MongoDB"></i>
                             {% elif tech == 'Git' %}
-                                <i class="fab fa-git-alt tech-icon-xl" title="Git"></i>
+                                <i class="fab fa-git-alt" title="Git"></i>
                             {% elif tech == 'Docker' %}
-                                <i class="fab fa-docker tech-icon-xl" title="Docker"></i>
+                                <i class="fab fa-docker" title="Docker"></i>
                             {% elif tech == 'AWS' or tech == 'Amazon Web Services' %}
-                                <i class="fab fa-aws tech-icon-xl" title="AWS"></i>
+                                <i class="fab fa-aws" title="AWS"></i>
                             {% elif tech == 'Azure' %}
-                                <i class="fab fa-microsoft tech-icon-xl" title="Azure"></i>
+                                <i class="fab fa-microsoft" title="Azure"></i>
                             {% elif tech == 'Firebase' %}
-                                <i class="fas fa-fire tech-icon-xl" title="Firebase"></i>
+                                <i class="fas fa-fire" title="Firebase"></i>
                             {% elif tech == 'GraphQL' %}
-                                <i class="fas fa-project-diagram tech-icon-xl" title="GraphQL"></i>
+                                <i class="fas fa-project-diagram" title="GraphQL"></i>
                             {% elif tech == 'REST API' %}
-                                <i class="fas fa-cloud tech-icon-xl" title="REST API"></i>
+                                <i class="fas fa-cloud" title="REST API"></i>
                             {% elif tech == 'Sass' or tech == 'SCSS' %}
-                                <i class="fab fa-sass tech-icon-xl" title="Sass"></i>
+                                <i class="fab fa-sass" title="Sass"></i>
                             {% elif tech == 'Bootstrap' %}
-                                <i class="fab fa-bootstrap tech-icon-xl" title="Bootstrap"></i>
+                                <i class="fab fa-bootstrap" title="Bootstrap"></i>
                             {% elif tech == 'Tailwind CSS' %}
-                                <i class="fas fa-wind tech-icon-xl" title="Tailwind CSS"></i>
+                                <i class="fas fa-wind" title="Tailwind CSS"></i>
                             {% elif tech == 'Material UI' or tech == 'MUI' %}
-                                <i class="fas fa-palette tech-icon-xl" title="Material UI"></i>
+                                <i class="fas fa-palette" title="Material UI"></i>
                             {% elif tech == 'jQuery' %}
-                                <i class="fas fa-code tech-icon-xl" title="jQuery"></i>
+                                <i class="fas fa-code" title="jQuery"></i>
                             {% elif tech == 'Redux' %}
-                                <i class="fas fa-boxes tech-icon-xl" title="Redux"></i>
+                                <i class="fas fa-boxes" title="Redux"></i>
                             {% elif tech == 'Next.js' %}
-                                <i class="fas fa-arrow-right tech-icon-xl" title="Next.js"></i>
+                                <i class="fas fa-arrow-right" title="Next.js"></i>
                             {% elif tech == 'Nuxt.js' %}
-                                <i class="fas fa-arrow-right tech-icon-xl" title="Nuxt.js"></i>
+                                <i class="fas fa-arrow-right" title="Nuxt.js"></i>
                             {% elif tech == 'Flask' %}
-                                <i class="fas fa-flask tech-icon-xl" title="Flask"></i>
+                                <i class="fas fa-flask" title="Flask"></i>
                             {% elif tech == 'FastAPI' %}
-                                <i class="fas fa-bolt tech-icon-xl" title="FastAPI"></i>
+                                <i class="fas fa-bolt" title="FastAPI"></i>
                             {% elif tech == 'Nginx' %}
-                                <i class="fas fa-server tech-icon-xl" title="Nginx"></i>
+                                <i class="fas fa-server" title="Nginx"></i>
                             {% elif tech == 'Linux' %}
-                                <i class="fab fa-linux tech-icon-xl" title="Linux"></i>
+                                <i class="fab fa-linux" title="Linux"></i>
                             {% elif tech == 'Windows' %}
-                                <i class="fab fa-windows tech-icon-xl" title="Windows"></i>
+                                <i class="fab fa-windows" title="Windows"></i>
                             {% elif tech == 'MacOS' %}
-                                <i class="fab fa-apple tech-icon-xl" title="MacOS"></i>
+                                <i class="fab fa-apple" title="MacOS"></i>
                             {% elif tech == 'Figma' %}
-                                <i class="fab fa-figma tech-icon-xl" title="Figma"></i>
+                                <i class="fab fa-figma" title="Figma"></i>
                             {% elif tech == 'Adobe XD' %}
-                                <i class="fas fa-paint-brush tech-icon-xl" title="Adobe XD"></i>
+                                <i class="fas fa-paint-brush" title="Adobe XD"></i>
                             {% elif tech == 'Photoshop' %}
-                                <i class="fas fa-image tech-icon-xl" title="Photoshop"></i>
+                                <i class="fas fa-image" title="Photoshop"></i>
                             {% elif tech == 'Illustrator' %}
-                                <i class="fas fa-pen-fancy tech-icon-xl" title="Illustrator"></i>
+                                <i class="fas fa-pen-fancy" title="Illustrator"></i>
                             {% else %}
-                                <span class="tech-text-xl" title="{{ tech }}">{{ tech }}</span>
+                                <span title="{{ tech }}">{{ tech }}</span>
                             {% endif %}
                             <span class="modal-tech-name">{{ tech }}</span>
                         </div>
@@ -348,76 +349,6 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/filter.css' %}">
-<style>
-    /* Estilos para los iconos de tecnología */
-    .tech-icon-lg {
-        font-size: 1.5rem; /* Tamaño mediano para las tarjetas */
-        margin: 0 5px;
-        color: #4a6baf;
-        transition: all 0.3s ease;
-    }
-    
-    .tech-icon-xl {
-        font-size: 2rem; /* Tamaño grande para el modal */
-        margin: 0 8px 10px;
-        color: #4a6baf;
-    }
-    
-    .tech-text-lg {
-        font-size: 1rem;
-        font-weight: 500;
-        margin: 0 5px;
-        color: #4a6baf;
-    }
-    
-    .tech-text-xl {
-        font-size: 1.2rem;
-        font-weight: 500;
-        margin: 0 8px 10px;
-        color: #4a6baf;
-    }
-    
-    .project-technologies {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 12px;
-        align-items: center;
-    }
-    
-    .project-tech {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .modal-tech-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        margin-top: 15px;
-    }
-    
-    .modal-tech-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-width: 60px;
-    }
-    
-    .modal-tech-name {
-        font-size: 0.8rem;
-        margin-top: 5px;
-        text-align: center;
-        color: #555;
-    }
-    
-    /* Efecto hover para los iconos en las tarjetas */
-    .project-tech:hover .tech-icon-lg {
-        transform: scale(1.2);
-        color: #3a56a0;
-    }
-</style>
 {% endblock %}
 
 {% block extra_js %}

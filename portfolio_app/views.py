@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import JsonResponse, HttpResponse, HttpResponseRedirect, FileResponse, HttpResponseNotFound
 
+from django.views.generic import ListView
 from django.views.decorators.http import require_http_methods
 from django.conf import settings
 from django.utils.translation import gettext as _
@@ -18,6 +19,37 @@ from deep_translator import GoogleTranslator
 from reportlab.lib.pagesizes import letter  # Importación necesaria para letter
 from reportlab.pdfgen import canvas
 from io import BytesIO
+
+from .models import Certificacion, Technology, TechnologyCategory
+
+from django.views import View
+
+class CertificacionListView(ListView):
+    model = Certificacion
+    template_name = 'certificaciones.html'
+    context_object_name = 'certificaciones'
+    paginate_by = 10  # Opcional: para paginación
+
+    def get_queryset(self):
+        queryset = super().get_queryset().select_related().prefetch_related('technologies__category')
+        
+        # Filtros
+        tech_category = self.request.GET.get('tech_category')
+        technology = self.request.GET.get('technology')
+        
+        if tech_category:
+            queryset = queryset.filter(technologies__category__name=tech_category)
+        if technology:
+            queryset = queryset.filter(technologies__name=technology)
+            
+        return queryset
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = "Mis Certificaciones"
+        context['tech_categories'] = TechnologyCategory.objects.all()
+        return context
+    
 
 from django.core.mail import send_mail
 from .models import (
@@ -38,6 +70,10 @@ from .utils import (
     get_common_context
 )
 from .forms import ContactForm
+
+
+
+
 
 
 

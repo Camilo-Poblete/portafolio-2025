@@ -2,6 +2,9 @@ from django.urls import path
 from . import views
 
 from django.views.generic import TemplateView
+from .views import *
+
+
 
 app_name = 'portfolio'
 
@@ -17,4 +20,7 @@ urlpatterns = [
     path('success/', TemplateView.as_view(template_name='success.html'), name='success'),
        path('download/cv_es/', views.download_cv_es, name='download_cv_es'),
        path('download/cv_en/', views.download_cv_en, name='download_cv_en'),
+
+       path('certificaciones/', CertificacionListView.as_view(), name='certificaciones'),
 ]
+

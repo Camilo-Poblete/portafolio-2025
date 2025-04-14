@@ -5,6 +5,63 @@ Since we're not using a database, we'll store the data in Python structures.
 import os
 from django.conf import settings
 
+from django.db import models
+from django.utils.translation import gettext_lazy as _
+
+
+
+class TechnologyCategory(models.Model):
+    name = models.CharField(_("Nombre"), max_length=100)
+    
+    class Meta:
+        verbose_name = _("Categoría de Tecnología")
+        verbose_name_plural = _("Categorías de Tecnologías")
+        ordering = ['name']
+    
+    def __str__(self):
+        return self.name
+
+class Technology(models.Model):
+    name = models.CharField(_("Nombre"), max_length=100)
+    category = models.ForeignKey(TechnologyCategory, on_delete=models.CASCADE, related_name='technologies')
+    
+    class Meta:
+        verbose_name = _("Tecnología")
+        verbose_name_plural = _("Tecnologías")
+        ordering = ['name']
+    
+    def __str__(self):
+        return self.name
+
+class Certificacion(models.Model):
+    titulo = models.CharField(_("Título"), max_length=200)
+    organizacion = models.CharField(_("Organización"), max_length=100)
+    fecha_obtencion = models.DateField(_("Fecha de Obtención"))
+    fecha_expiracion = models.DateField(_("Fecha de Expiración"), blank=True, null=True)
+    descripcion = models.TextField(null=True, blank=True)
+    imagen = models.FileField(upload_to='static/media/images/', null=True, blank=True)  # Eliminado 'certifications/'
+    archivo_pdf = models.FileField(_("PDF del Certificado"), upload_to='static/media/images/', blank=True, null=True)  # Eliminado 'certifications/'
+    url_verificacion = models.URLField(_("URL de Verificación"), blank=True, null=True)
+    technologies = models.ManyToManyField(Technology, related_name='certificaciones', blank=True)
+    
+    class Meta:
+        verbose_name = _("Certificación")
+        verbose_name_plural = _("Certificaciones")
+        ordering = ['-fecha_obtencion']
+    
+    def __str__(self):
+        return self.titulo
+    
+    @property
+    def tech_list(self):
+        return [tech.name for tech in self.technologies.all()]
+        
+    @property
+    def tech_categories(self):
+        categories = set()
+        for tech in self.technologies.all():
+            categories.add(tech.category.name)
+        return list(categories)
 
 
 def get_technology_categories():
@@ -305,3 +362,5 @@ def get_certifications():
             'expires': '2023'
         }
     ]
+
+

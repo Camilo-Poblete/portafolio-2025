@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/certificaciones.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modal.css' %}">
+</head>
+<body class="bg-gray-100 text-gray-800 overflow-y-auto">
+
+    <h1 class="text-3xl font-bold text-center pt-24 mb-6">{{ title }}</h1>
+    <br>
+    <div class="certifications">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 w-full max-w-7xl mx-auto">
+            
+            {% for certificacion in certificaciones %}
+            <!-- Certificación dinámica -->
+            <div class="certification-item bg-white rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:transform hover:-translate-y-1 w-full">
+                <h2 class="text-xl font-semibold mb-2">{{ certificacion.titulo }}</h2>
+                <p class="text-sm text-gray-600"><i class="fas fa-building mr-2"></i>{{ certificacion.institucion }}</p>
+                <p class="text-sm text-gray-600"><i class="far fa-calendar-alt mr-2"></i>{{ certificacion.fecha_obtencion }}</p>
+                <p class="text-sm text-gray-600"><i class="fas fa-hourglass-end mr-2"></i>{{ certificacion.fecha_expiracion }}</p>
+                <p class="mb-3 text-sm text-gray-700 mt-2">{{ certificacion.descripcion }}</p>
+                <div class="mb-3">
+                    <img src="{{ certificacion.imagen.url }}" alt="{{ certificacion.titulo }}" 
+                         class="rounded-lg shadow-md cursor-pointer h-40 w-full object-cover hover:opacity-90 transition-opacity"
+                         onclick="openModal('{{ forloop.counter }}')">
+                </div>
+                <button onclick="openModal('{{ forloop.counter }}')" class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-expand mr-2"></i> Ver detalle
+                </button>
+            </div>
+
+            <!-- Modal para cada certificación -->
+            <div id="modal-{{ forloop.counter }}" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden z-50 p-4">
+                <div class="modal-content bg-white rounded-xl w-full max-w-7xl" onclick="event.stopPropagation()">
+                    <!-- Header del modal -->
+                    <div class="flex justify-between items-center p-2 t-xl">
+                        <h3 class="text-xl font-semibold text-gray-500 flex items-center">
+                            <i class="fas fa-certificate text-yellow-500 mr-2"></i>
+                            {{ certificacion.titulo }}
+                        </h3>
+                        <button onclick="closeModal('{{ forloop.counter }}')" class="text-gray-500 hover:text-gray-700 text-2xl p-2 rounded-full hover:bg-gray-200 transition-colors">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Contenido principal del modal -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 h-full overflow-hidden">
+                        <!-- Panel izquierdo: Información (MANTENIDO EXACTAMENTE IGUAL) -->
+                        <div class="lg:col-span-1 p-6 border-r overflow-y-auto max-h-[80vh]">
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-building text-blue-500 mt-1 mr-3"></i>
+                                    <div>
+                                        <p class="font-medium text-gray-700">Organización</p>
+                                        <p class="text-gray-600">{{ certificacion.institucion }}</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <i class="far fa-calendar-alt text-blue-500 mt-1 mr-3"></i>
+                                    <div>
+                                        <p class="font-medium text-gray-700">Fecha de obtención</p>
+                                        <p class="text-gray-600">{{ certificacion.fecha_obtencion }}</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <i class="fas fa-hourglass-end text-blue-500 mt-1 mr-3"></i>
+                                    <div>
+                                        <p class="font-medium text-gray-700">Fecha de expiración</p>
+                                        <p class="text-gray-600">{{ certificacion.fecha_expiracion }}</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6">
+                                    <h4 class="font-medium text-gray-700 mb-2 flex items-center">
+                                        <i class="fas fa-tags text-blue-500 mr-2"></i>
+                                        Categorías
+                                    </h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        {% for categoria in certificacion.categorias.all %}
+                                        <span class="tech-badge bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">
+                                            {{ categoria.nombre }}
+                                        </span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h4 class="font-medium text-gray-700 mb-2 flex items-center">
+                                        <i class="fas fa-code text-blue-500 mr-2"></i>
+                                        Tecnologías
+                                    </h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        {% for tecnologia in certificacion.tecnologias.all %}
+                                        <span class="tech-badge bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs">
+                                            {{ tecnologia.nombre }}
+                                        </span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6 pt-4 border-t">
+                                         
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Panel derecho: Visualización de documento con contorno -->
+                        <div class="lg:col-span-2 flex flex-col h-full relative">
+                            <!-- Controles de zoom flotantes -->
+                            <div class="zoom-controls">
+                                <button onclick="zoomIn('{{ forloop.counter }}')" class="zoom-btn" title="Acercar">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                                <button onclick="zoomOut('{{ forloop.counter }}')" class="zoom-btn" title="Alejar">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button onclick="resetZoom('{{ forloop.counter }}')" class="zoom-btn" title="Restablecer zoom">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Contenedor del documento con contorno -->
+                            <div id="img-container-{{ forloop.counter }}" class="image-container">
+                                <div class="document-container">
+                                    <div id="cert-wrapper-{{ forloop.counter }}" class="cert-wrapper">
+                                        <img id="cert-img-{{ forloop.counter }}" 
+                                             src="{{ certificacion.imagen.url }}" 
+                                             alt="{{ certificacion.titulo }}" 
+                                             class="cert-img"
+                                             data-scale="1"
+                                             data-translate-x="0"
+                                             data-translate-y="0">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Indicador de zoom mejorado -->
+                            <div class="zoom-indicator">
+                                <i class="fas fa-search"></i>
+                                <span id="zoom-level-{{ forloop.counter }}">100%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <script>
+        window.certificacionesIds = [{% for c in certificaciones %}{{ forloop.counter }}{% if not forloop.last %}, {% endif %}{% endfor %}];
+      </script>
+      <script src="{% static 'js/modal.js' %}"></script>
+    <script src="{% static 'js/openModal.js' %}"></script>
+ 
+    {% block extra_js %}{% endblock %}
+    
+{% endblock %}

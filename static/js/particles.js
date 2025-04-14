@@ -103,7 +103,7 @@ class ParticleSystem {
     resize() {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
-        this.particleCount = window.innerWidth < 768 ? 30 : 100;
+        this.particleCount = window.innerWidth < 768 ? 30 :65;
         
         if (this.particles.length > this.particleCount) {
             this.particles = this.particles.slice(0, this.particleCount);

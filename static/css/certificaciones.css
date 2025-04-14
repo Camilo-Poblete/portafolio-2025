@@ -1,0 +1,67 @@
+.modal-content {
+    max-height: 95vh;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Añadido para evitar scroll completo */
+}
+.image-container {
+    flex-grow: 1;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cert-img {
+    transition: transform 0.3s ease;
+    max-width: 100%;
+    max-height: 100%;
+    cursor: grab;
+}
+.cert-img:active {
+    cursor: grabbing;
+}
+.tech-badge {
+    transition: all 0.2s ease;
+}
+.tech-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.zoom-controls button {
+    transition: all 0.2s ease;
+}
+.zoom-controls button:hover {
+    transform: scale(1.1);
+}
+/* Ocultar navbar cuando el modal está abierto */
+body.modal-open nav {
+    display: none !important;
+}
+/* Estilos para la barra de desplazamiento */
+.scrollable-content {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e0 #f7fafc;
+    max-height: 75vh; /* Altura máxima para asegurar el scroll */
+}
+.scrollable-content::-webkit-scrollbar {
+    width: 8px;
+}
+.scrollable-content::-webkit-scrollbar-track {
+    background: #f7fafc;
+    border-radius: 4px;
+}
+.scrollable-content::-webkit-scrollbar-thumb {
+    background-color: #cbd5e0;
+    border-radius: 4px;
+}
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+    background-color: #a0aec0;
+}
+
+
+
+

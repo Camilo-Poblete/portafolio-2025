@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/projects.css' %}">
@@ -24,7 +25,7 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/particles.css' %}">
     <link rel="stylesheet" href="{% static 'css/colorPalette.css' %}">
-   
+
     {% block extra_css %}{% endblock %}
 </head>
 <body data-bs-theme="dark">
@@ -46,6 +47,7 @@
                     <li class="nav-item"><a class="nav-link {% if active_page == 'projects' %}active{% endif %}" href="{% url 'portfolio:project_list' %}">Proyectos</a></li>
                     <li class="nav-item"><a class="nav-link {% if active_page == 'skills' %}active{% endif %}" href="{% url 'portfolio:skill_list' %}">Habilidades</a></li>
                     <li class="nav-item"><a class="nav-link {% if active_page == 'contact' %}active{% endif %}" href="{% url 'portfolio:contact' %}">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link {% if active_page == 'certificaciones' %}active{% endif %}" href="{% url 'portfolio:certificaciones' %}">certificaciones</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                             <i class="fas fa-download me-2"></i> CV
@@ -55,7 +57,9 @@
                             <li><a class="dropdown-item" href="{% url 'portfolio:download_cv_en' %}"><i class="fas fa-download me-2"></i> CV Inglés</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
+
+                    <!-- Acordeón de paletas de partículas -->
+                    <li class="nav-item me-2">
                         <div class="accordion" id="accordionColorMenu">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
@@ -71,10 +75,16 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item">
+
+                    <!-- Botón separado -->
+                    <li class="nav-item me-2">
                         <button id="btn-change-bg" class="btn btn-primary" aria-label="Cambiar color de fondo">
                             <i class="fas fa-palette"></i>
                         </button>
+                    </li>
+
+                    <!-- Paleta separada (visible con JS al hacer clic en el botón) -->
+                    <li class="nav-item">
                         <div class="color-palette d-none" id="colorPalette">
                             <div class="color-box" style="background-color: #e67e22;" data-color="#e67e22"></div>
                             <div class="color-box" style="background-color: #e74c3c;" data-color="#e74c3c"></div>
@@ -92,11 +102,11 @@
     <main>{% block content %}{% endblock %}</main>
 
     <footer class="footer">
-        <div class="container">
+        
             <div class="footer-content">
                 <div>
-                    <a href="{% url 'portfolio:index' %}" class="footer-logo">Camilo Poblete</a>
-                    <p class="footer-text">Desarrollador Full Stack & Ingeniero de Software especializado en crear aplicaciones web y móviles con arquitecturas modernas y escalables.</p>
+                  
+                    <p class="footer-text">Desarrollador Full Stack </p>
                 </div>
             </div>
         </div>
@@ -111,7 +121,7 @@
     <script src="{% static 'js/home.js' %}"></script>
     <script src="{% static 'js/particles.js' %}"></script>
     <script src="{% static 'js/colorPalette.js' %}"></script>
-    
+
     {% block extra_js %}{% endblock %}
 </body>
 </html>
