@@ -29,7 +29,7 @@
 
 .switch-btn.active {
     background: #105a1c;
-    color: var(--color-primary);
+    color: floralwhite;
     box-shadow: 0 0 10px rgba(0, 255, 170, 0.2);
 }
 

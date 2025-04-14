@@ -1,13 +1,14 @@
 :root {
-    --color-primary: #00ffaa;
+    --color-primary: #00921d;
     --color-secondary: #00aaff;
     --color-gold: #ffc107;
     --color-dark: #121212;
     --color-darker: #0a0a0a;
-    --color-text: #f8f9fa;
+    --color-text: #121212; /* Texto oscuro */
     --font-primary: 'Rajdhani', sans-serif;
     --font-secondary: 'Orbitron', sans-serif;
 }
+
 
 /* Global Styles */
 body {
@@ -73,8 +74,14 @@ body::before {
     background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;
+   
     position: relative;
+}
+
+.brand-text {
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .navbar-brand::after {
@@ -525,16 +532,77 @@ main {
     z-index: -1;
 }
 
+.neon-text {
+    font-family: 'Orbitron', sans-serif; /* Mantener la fuente futurista */
+    font-size: 2rem; /* Ajusta el tamaño del texto */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px; /* Espaciado entre letras */
+    color: #000; /* Texto base negro */
+
+    /* Efecto de neón con color blanco */
+    text-shadow: 
+        0 0 10px #fff, 
+        0 0 20px #fff, 
+        0 0 30px #fff, 
+        0 0 40px #fff; /* Sombra blanca para efecto neón */
+
+    transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out; /* Transición suave */
+}
+
+/* Estilo para el cambio de color de texto */
+.neon-text.color-changed {
+    color: #ffffff; /* Color blanco por defecto al aplicar el cambio */
+
+    /* Efecto de sombra de neón en colores más oscuros */
+    text-shadow: 
+        0 0 10px #e74c3c,  /* Rojo oscuro */
+        0 0 20px #e74c3c, 
+        0 0 30px #e74c3c, 
+        0 0 40px #e74c3c; /* Sombra roja para efecto neón */
+}
+
+/* Estilo para diferentes colores de neón */
+.neon-text.color-blue {
+    color: #3498db; /* Color azul */
+    text-shadow: 
+        0 0 10px #3498db, 
+        0 0 20px #3498db, 
+        0 0 30px #3498db, 
+        0 0 40px #3498db; /* Sombra azul para efecto neón */
+}
+
+.neon-text.color-green {
+    color: #2ecc71; /* Color verde */
+    text-shadow: 
+        0 0 10px #2ecc71, 
+        0 0 20px #2ecc71, 
+        0 0 30px #2ecc71, 
+        0 0 40px #2ecc71; /* Sombra verde para efecto neón */
+}
+
+.neon-text.color-orange {
+    color: #e67e22; /* Color naranja */
+    text-shadow: 
+        0 0 10px #e67e22, 
+        0 0 20px #e67e22, 
+        0 0 30px #e67e22, 
+        0 0 40px #e67e22; /* Sombra naranja para efecto neón */
+}
+
+
+
+
 .btn-cyberpunk:hover::before {
     left: 0;
 }
 
 /* Neon text */
 .neon-text {
-    color: var(--color-primary);
-    text-shadow: 0 0 5px rgba(0, 255, 170, 0.7),
-                 0 0 10px rgba(0, 255, 170, 0.5),
-                 0 0 15px rgba(0, 255, 170, 0.3);
+    color:#209537 ;
+    text-shadow: 0 0 5px rgba(0, 119, 8, 0.7),
+                 0 0 10px rgba(0, 110, 20, 0.5),
+                 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Glitch effect */
@@ -785,4 +853,17 @@ main {
     filter: drop-shadow(0 0 4px var(--color-primary));
     transition: opacity 0.3s ease;
 }
+
+
+
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.8rem;
+  
+    position: relative;
+    display: inline-block; 
+    padding: 0.5rem;
+}
+
 

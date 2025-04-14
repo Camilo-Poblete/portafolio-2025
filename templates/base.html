@@ -21,45 +21,10 @@
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'css/body.css' %}">
     <link rel="stylesheet" href="{% static 'css/section.css' %}">
-    <link rel="stylesheet" href="{% static 'css/mode.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/particles.css' %}">
-
-    <style>
-        #btn-change-bg {
-            font-size: 16px;
-            padding: 10px;
-            border-radius: 50%;
-            background-color: #2ecc71;
-            color: white;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        #btn-change-bg:hover {
-            background-color: #27ae60;
-        }
-
-        .color-palette {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .color-box {
-            width: 30px;
-            height: 30px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .color-box:hover {
-            opacity: 0.8;
-        }
-    </style>
-
+    <link rel="stylesheet" href="{% static 'css/colorPalette.css' %}">
+   
     {% block extra_css %}{% endblock %}
 </head>
 <body data-bs-theme="dark">
@@ -71,7 +36,7 @@
 
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'portfolio:index' %}"><span>Camilo Poblete</span></a>
+            <a class="navbar-brand" href="{% url 'portfolio:index' %}"><span class="brand-text">Camilo Poblete</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -145,39 +110,8 @@
     <script src="{% static 'js/animation.js' %}"></script>
     <script src="{% static 'js/home.js' %}"></script>
     <script src="{% static 'js/particles.js' %}"></script>
-
-    <script>
-        const btnChangeBg = document.getElementById('btn-change-bg');
-        const colorPalette = document.getElementById('colorPalette');
-
-        btnChangeBg.addEventListener('click', () => {
-            colorPalette.classList.toggle('d-none');
-        });
-
-        const setThemeColor = (color) => {
-            document.body.style.backgroundColor = color;
-            document.querySelectorAll('.btn').forEach(btn => {
-                btn.style.backgroundColor = color;
-                btn.style.borderColor = color;
-            });
-        };
-
-        colorPalette.addEventListener('click', (e) => {
-            if (e.target.classList.contains('color-box')) {
-                const color = e.target.getAttribute('data-color');
-                localStorage.setItem('bgColor', color);
-                setThemeColor(color);
-            }
-        });
-
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedColor = localStorage.getItem('bgColor');
-            if (savedColor) {
-                setThemeColor(savedColor);
-            }
-        });
-    </script>
-
+    <script src="{% static 'js/colorPalette.js' %}"></script>
+    
     {% block extra_js %}{% endblock %}
 </body>
 </html>

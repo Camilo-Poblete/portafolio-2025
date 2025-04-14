@@ -67,16 +67,6 @@ body::before {
     transition: all 0.3s ease;
 }
 
-.navbar-brand {
-    font-family: var(--font-secondary);
-    font-weight: 700;
-    font-size: 1.8rem;
-    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    position: relative;
-}
 
 .navbar-brand::after {
     content: '';
@@ -535,11 +525,24 @@ main {
 
 /* Neon text */
 .neon-text {
-    color: var(--color-primary);
-    text-shadow: 0 0 5px rgba(0, 255, 170, 0.7),
-                    0 0 10px rgba(0, 255, 170, 0.5),
-                    0 0 15px rgba(0, 255, 170, 0.3);
+
+ 
+    backdrop-filter: blur(10px);             /* Igual que navbar */
+    /* Igual que navbar */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);       /* Igual que navbar */
+    
+    color: #00ffaa;
+    text-shadow: 0 0 5px rgba(0, 255, 170, 0.6),
+                 0 0 10px rgba(0, 255, 170, 0.4),
+                 0 0 20px rgba(0, 255, 170, 0.2);
+    
+    padding: 0.2rem 0.6rem;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all 0.3s ease;
 }
+
+
 
 /* Glitch effect */
 .glitch {
