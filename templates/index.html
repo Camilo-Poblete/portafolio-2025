@@ -293,7 +293,8 @@
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content hologram-card">
-                    <div class="timeline-date">{{ exp.period }}</div>
+                    <!-- Mostrar el período entre paréntesis -->
+                    <div class="timeline-period">({{ exp.period }})</div>
                     <h3 class="timeline-position">{{ exp.position }}</h3>
                     <h4 class="timeline-company">{{ exp.company }}</h4>
                     <p class="timeline-description">{{ exp.description }}</p>

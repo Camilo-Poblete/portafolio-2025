@@ -47,7 +47,7 @@
                     <li class="nav-item"><a class="nav-link {% if active_page == 'projects' %}active{% endif %}" href="{% url 'portfolio:project_list' %}">Proyectos</a></li>
                     <li class="nav-item"><a class="nav-link {% if active_page == 'skills' %}active{% endif %}" href="{% url 'portfolio:skill_list' %}">Habilidades</a></li>
                     <li class="nav-item"><a class="nav-link {% if active_page == 'contact' %}active{% endif %}" href="{% url 'portfolio:contact' %}">Contacto</a></li>
-                    <li class="nav-item"><a class="nav-link {% if active_page == 'certificaciones' %}active{% endif %}" href="{% url 'portfolio:certificaciones' %}">certificaciones</a></li>
+                    <li class="nav-item"><a class="nav-link {% if active_page == 'certificaciones' %}active{% endif %}" href="{% url 'portfolio:certificaciones' %}">Certificaciones</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                             <i class="fas fa-download me-2"></i> CV
@@ -101,13 +101,11 @@
 
     <main>{% block content %}{% endblock %}</main>
 
+    <!-- Footer -->
     <footer class="footer">
-        
-            <div class="footer-content">
-                <div>
-                  
-                    <p class="footer-text">Desarrollador Full Stack </p>
-                </div>
+        <div class="container">
+            <div class="footer-content text-center">
+                <p class="footer-text">Desarrollador Full Stack | Camilo Poblete</p>
             </div>
         </div>
     </footer>

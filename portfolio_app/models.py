@@ -114,43 +114,44 @@ def get_projects():
     return [
         {
             'id': 1,
-            'title': 'Sistema de Comercio Electrónico',
-            'short_description': 'Plataforma de comercio electrónico completa...',
-            'long_description': 'Desarrollo completo de una plataforma...',
-            'categories': ['Desarrollo Web', 'E-commerce'],
-            'technologies': ['React', 'Node.js', 'MongoDB', 'Express', 'Redux', 'AWS'],
+            'title': ' Yokanjeo ',
+            'short_description': 'Busqueda de propiedades...',
+           'short_description': 'Plataforma para búsqueda y publicación de propiedades inmobiliarias.',
+           'long_description': 'Desarrollo completo de una aplicación web para gestión de propiedades, con autenticación de usuarios, filtrado avanzado, integración con mapas y panel administrativo.',
+           'categories': ['Desarrollo Web', 'Inmobiliaria'],
+           'technologies': ['ASP.NET Core', 'Entity Framework Core', 'SQL Server', 'Razor Pages', 'SignalR', 'Azure'],
             'tech_categories': {
-                'Lenguajes de Programación': ['JavaScript'],
-                'Frameworks': ['React', 'Express', 'Redux'],
-                'Blockchain/Runtime': ['Node.js'],  # Runtime
-                'Bases de Datos': ['MongoDB'],
-                'DevOps/Cloud': ['AWS']
+                 'Lenguajes de Programación': ['C#'],
+                  'Frameworks': ['ASP.NET Core', 'Entity Framework Core', 'Razor Pages'],
+                   'Bases de Datos': ['SQL Server'],
+                    'Realtime': ['SignalR']
+                   
             },
-            'image': '/static/img/projects/ecommerce.svg',
-            'github_url': 'https://github.com/camilopoblete/ecommerce-platform',
+            'image': '/static/img/projects/Yokanjeo (2).svg',
+            'github_url': 'https://github.com/Camilo-Poblete/Yokanjeo',
             'live_url': 'https://ecommerce-demo.camilopoblete.com'
         },
         {
             'id': 2,
-            'title': 'Aplicación Móvil de Finanzas Personales',
-            'short_description': 'App para el seguimiento de gastos...',
-            'long_description': 'Aplicación móvil para el seguimiento...',
-            'categories': ['Desarrollo Móvil', 'Fintech'],
-            'technologies': ['React Native', 'Firebase', 'Redux', 'D3.js', 'Node.js'],
-            'tech_categories': {
-                'Lenguajes de Programación': ['JavaScript'],
+            'title': 'Restaurante',
+             'short_description': 'Aplicación para gestión y pedidos en restaurantes.',
+              'long_description': 'Aplicación web y móvil que permite a los restaurantes gestionar su menú, pedidos en tiempo real, reservas y estadísticas de ventas, todo respaldado por un backend en Django.',
+              'categories': ['Desarrollo Web', 'Gastronomía'],
+              'technologies': ['Django', 'Python', 'PostgreSQL', 'Chart.js'],
+              'tech_categories': {
+                'Lenguajes de Programación': ['Python', 'JavaScript', 'html', 'css'],
                 'Frameworks': ['React Native', 'Redux'],
-                'Blockchain/Runtime': ['Node.js'],  # Runtime
-                'Bases de Datos': ['Firebase'],
-                'Visualización': ['D3.js']
+                'Bases de Datos': ['PostgreSQL'],
+               
+                
             },
             'image': '/static/img/projects/mobile_app.svg',
-            'github_url': 'https://github.com/camilopoblete/finanzapp',
-            'live_url': 'https://finanzapp.camilopoblete.com'
+            'github_url': 'https://github.com/Camilo-Poblete/cleanFood',
+            'live_url': 'juegos-dados-img.vercel.app'
         },
         {
             'id': 3,
-            'title': 'Plataforma Blockchain para Certificaciones',
+            'title': 'Blog de base de datos',
             'short_description': 'Sistema descentralizado...',
             'long_description': 'Plataforma descentralizada...',
             'categories': ['Blockchain', 'Web3'],
@@ -160,7 +161,7 @@ def get_projects():
                 'Frameworks': ['React'],
                 'Blockchain/Runtime': ['Ethereum', 'Web3.js', 'Node.js', 'Solidity'],  # Todo unificado: Blockchain + Runtime + Smart Contracts
             },
-            'image': '/static/img/projects/blockchain.svg',
+            'image': '/static/img/projects/mobile_app.svg',
             'github_url': 'https://github.com/camilopoblete/certchain',
             'live_url': 'https://certchain-demo.camilopoblete.com'
         },
@@ -180,27 +181,27 @@ def get_projects():
                 'DevOps/Cloud': ['Docker'],  # Docker ahora en DevOps/Cloud
                 'Protocolos': ['WebSockets']
             },
-            'image': '/static/img/projects/project_management.svg',
+            'image': '/static/img/projects/blockchain.svg',
             'github_url': 'https://github.com/camilopoblete/taskmaster',
             'live_url': 'https://taskmaster-demo.camilopoblete.com'
         },
         {
+
+
             'id': 5,
-            'title': 'API de Inteligencia Artificial...',
-            'short_description': 'API de procesamiento...',
-            'long_description': 'Servicio de API que utiliza...',
-            'categories': ['Inteligencia Artificial', 'APIs'],
-            'technologies': ['Python', 'FastAPI', 'TensorFlow', 'spaCy', 'Redis', 'Docker'],
-            'tech_categories': {
-                'Lenguajes de Programación': ['Python'],
-                'Frameworks': ['FastAPI', 'TensorFlow'],
-                'Bases de Datos': ['Redis'],
-                'DevOps/Cloud': ['Docker'],  # Docker y Redis (si es para caché) separados
-                'NLP': ['spaCy']
-            },
-            'image': '/static/img/projects/ai_text.svg',
-            'github_url': 'https://github.com/camilopoblete/textmind-api',
-            'live_url': 'https://api-docs.textmind.camilopoblete.com'
+            'title': 'Juego de dados',
+           'short_description': 'Juego interactivo hecho con JavaScript y Bootstrap.',
+           'long_description': 'Aplicación web divertida donde dos jugadores lanzan dados virtuales para competir. Desarrollado usando HTML, CSS, JavaScript y Bootstrap, enfocado en la lógica del frontend.',
+          'categories': ['Frontend', 'Juegos'],
+          'technologies': ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+         'tech_categories': {
+        'Lenguajes de Programación': ['JavaScript'],
+        'Frontend': ['HTML', 'CSS', 'Bootstrap'],
+        'Lógica de Juego': ['JavaScript']
+    },
+            'image': '/static/img/projects/mobile_app.svg',
+            'github_url': 'https://github.com/Camilo-Poblete/juegosDadosImg',
+            'live_url': 'https://juegos-dados-img.vercel.app/'
         },
         {
             'id': 6,
@@ -215,7 +216,7 @@ def get_projects():
                 'Bases de Datos': ['PostgreSQL', 'Redis'],
                 'DevOps/Cloud': ['AWS']  # AWS unificado aquí
             },
-            'image': '/static/img/projects/elearning.svg',
+            'image': '/static/img/projects/mobile_app.svg',
             'github_url': 'https://github.com/camilopoblete/learnhub',
             'live_url': 'https://learnhub-demo.camilopoblete.com'
         }
@@ -292,30 +293,66 @@ def get_experience():
     """Return work experience."""
     return [
         {
-            'position': 'Senior Full Stack Developer',
-            'company': 'TechInnovate Solutions',
-            'period': '2020 - Presente',
-            'description': 'Lideré el desarrollo de aplicaciones web y móviles para clientes de diversos sectores. Implementé arquitecturas escalables utilizando microservicios, contenedores Docker y despliegues en la nube. Mentorización de desarrolladores junior y participación en decisiones técnicas estratégicas.'
+            'position': 'Consultor Seguridad SAP JR',
+            'company': 'PGA Group Solutions',
+            'period': '2023',  # El periodo con año de inicio
+            'description': (
+                'Gestión de cuentas SAP: Creación, administración y desbloqueo de cuentas de usuario, asegurando continuidad operativa. '
+                'Implementación y control de políticas de contraseñas para mejorar la seguridad y el cumplimiento normativo.'
+            ),
+            'achievements': [
+                'Reducción del tiempo de desbloqueo de cuentas en un 40%.',
+                'Automatización parcial de procesos de creación de usuarios.'
+            ]
         },
         {
-            'position': 'Frontend Team Lead',
-            'company': 'DigitalWave Agency',
-            'period': '2018 - 2020',
-            'description': 'Dirigí un equipo de 8 desarrolladores frontend en la creación de interfaces de usuario para aplicaciones empresariales. Establecí estándares de código, implementé workflows de CI/CD, y mejoré significativamente la calidad del código y la velocidad de entrega.'
+            'position': 'Desarrollo Front End',
+            'company': 'C2C Technologies',
+            'period': '2022',
+            'description': (
+                'Participación en el desarrollo de un módulo para el Ministerio de Economía llamado "Chequeo Digital". '
+                'Se implementó exportación e importación de datos Excel y componentes frontend interactivos.'
+            ),
+            'achievements': [
+                'Entrega exitosa del módulo con integración completa de datos.',
+                'Documentación funcional entregada al cliente.'
+            ]
         },
         {
-            'position': 'Software Engineer',
-            'company': 'GlobalTech',
-            'period': '2015 - 2018',
-            'description': 'Desarrollé y mantuve aplicaciones web utilizando Angular, React y Node.js. Colaboré en equipos ágiles internacionales, participando en todas las fases del ciclo de desarrollo de software, desde la planificación hasta la implementación y monitoreo.'
+            'position': 'Desarrollador .NET (Práctica Profesional)',
+            'company': 'BIDATA',
+            'period': '2022',
+            'description': (
+                'Diseño y desarrollo de un sistema web para gestión inmobiliaria. '
+                'Desarrollo de funcionalidades clave utilizando ASP.NET, SQL Server y el patrón MVC.'
+            ),
+            'achievements': [
+                'Sistema funcional desplegado en entorno de pruebas.',
+                'Cumplimiento de objetivos de práctica en tiempo y forma.'
+            ]
         },
         {
-            'position': 'Desarrollador Web',
-            'company': 'CreaSoft',
-            'period': '2013 - 2015',
-            'description': 'Implementé sitios web y aplicaciones para pequeñas y medianas empresas utilizando PHP, JavaScript y MySQL. Gestioné proyectos completos, desde el diseño inicial hasta el despliegue y mantenimiento.'
+            'position': 'Practicante de Desarrollo de Software',
+            'company': 'Akzio Ingeniería de Software',
+            'period': '2021',
+            'description': (
+                'Apoyo en la mejora continua de aplicativos internos utilizados por QA. '
+                'Participación en la toma de requerimientos usando metodologías ágiles como Lean Inception.'
+            ),
+            'achievements': [
+                'Contribución al rediseño de una herramienta de inspección de código.',
+                'Trabajo colaborativo exitoso con equipos de QA.'
+            ]
         }
+
     ]
+
+        
+
+
+
+
+
 
 def get_education():
     """Return education background."""

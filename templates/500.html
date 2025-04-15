@@ -6,6 +6,7 @@
 {% block content %}
 <!-- 500 Section -->
 <section class="error-section bg-scan" id="error">
+    <link rel="stylesheet" href="{% static 'css/500.css' %}">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-center fade-in-up">
@@ -27,88 +28,9 @@
 {% endblock %}
 
 {% block extra_css %}
-<style>
-    .error-section {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 80vh;
-        padding-top: 10rem;
-        padding-bottom: 6rem;
-    }
-    
-    .error-code {
-        font-family: var(--font-secondary);
-        font-size: 8rem;
-        font-weight: 700;
-        color: transparent;
-        background: linear-gradient(to right, var(--color-danger), var(--color-warning));
-        -webkit-background-clip: text;
-        background-clip: text;
-        margin-bottom: 1rem;
-        line-height: 1;
-        text-shadow: 0 0 20px rgba(220, 53, 69, 0.3);
-        position: relative;
-    }
-    
-    .error-code:before {
-        content: '500';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        color: transparent;
-        background-clip: text;
-        -webkit-background-clip: text;
-        background: linear-gradient(to right, var(--color-danger), var(--color-warning));
-        filter: blur(8px);
-        opacity: 0.5;
-        z-index: -1;
-    }
-    
-    .error-title {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .error-text {
-        font-size: 1.1rem;
-        margin-bottom: 2rem;
-        color: var(--color-text-muted);
-    }
-    
-    .error-actions {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-    }
-    
-    /* Media Queries */
-    @media (max-width: 768px) {
-        .error-code {
-            font-size: 6rem;
-        }
-        
-        .error-title {
-            font-size: 2rem;
-        }
-        
-        .error-text {
-            font-size: 1rem;
-        }
-        
-        .error-actions {
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .error-actions .btn {
-            width: 100%;
-        }
-    }
-</style>
+
+
+
 {% endblock %}
 
 {% block extra_js %}

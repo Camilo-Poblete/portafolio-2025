@@ -1018,9 +1018,11 @@ section {
 }
 
 
+
+
 /* Cambiar el color del ícono */
 .fas.fa-info-circle {
-    color: #215b06; /* Color verde */
+    color: #ffffff; /* Color verde */
     font-size: 1.5rem; /* Tamaño del ícono */
 }
 
