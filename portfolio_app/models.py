@@ -275,18 +275,17 @@ def get_skills_by_category():
             {'name': 'Serverless', 'level': 80}
         ]
     }
-
 def get_soft_skills():
-    """Return soft skills."""
+    """Return soft skills without levels."""
     return [
-        {'name': 'Resolución de problemas', 'level': 95},
-        {'name': 'Comunicación efectiva', 'level': 90},
-        {'name': 'Trabajo en equipo', 'level': 95},
-        {'name': 'Liderazgo técnico', 'level': 85},
-        {'name': 'Gestión del tiempo', 'level': 90},
-        {'name': 'Adaptabilidad', 'level': 95},
-        {'name': 'Pensamiento crítico', 'level': 90},
-        {'name': 'Atención al detalle', 'level': 95}
+        {'name': 'Resolución de problemas'},
+        {'name': 'Comunicación efectiva'},
+        {'name': 'Trabajo en equipo'},
+        {'name': 'Liderazgo técnico'},
+        {'name': 'Gestión del tiempo'},
+        {'name': 'Adaptabilidad'},
+        {'name': 'Pensamiento crítico'},
+        {'name': 'Atención al detalle'}
     ]
 
 def get_experience():
